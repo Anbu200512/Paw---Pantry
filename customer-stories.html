@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class' }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #355E3B;
+            --primary-hover: #2a4a2f;
+            --accent: #F28C28;
+            --accent-hover: #d9771a;
+            --surface: #ffffff;
+            --surface-hover: #f3f4f6;
+            --surface-active: #e5e7eb;
+            --surface-muted: #f9fafb;
+            --text: #374151;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --border-muted: #f3f4f6;
+            --footer-bg: #ffffff;
+            --footer-text: #374151;
+            --footer-text-muted: #6b7280;
+            --page-bg: #f9fafb;
+            --page-text: #2D2A26;
+            --page-text-muted: #5C5852;
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+            --section-alt-bg: #F8F5EE;
+        }
+        .dark {
+            --primary: #4ade80;
+            --primary-hover: #22c55e;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --surface: #111111;
+            --surface-hover: #222222;
+            --surface-active: #2a2a2a;
+            --surface-muted: #000000;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border: #2a2a2a;
+            --border-muted: #1a1a1a;
+            --footer-bg: #000000;
+            --footer-text: #e5e7eb;
+            --footer-text-muted: #6b7280;
+            --page-bg: #000000;
+            --page-text: #e5e7eb;
+            --page-text-muted: #9ca3af;
+            --card-bg: #111111;
+            --card-border: #222222;
+            --section-alt-bg: #000000;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--page-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+        [dir="rtl"] [class*="space-x-"] > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+        }
+        @keyframes footerShimmer {
+            0% { background-position: 0% 0; }
+            100% { background-position: 300% 0; }
+        }
+        #theme-bar button {
+            transition: all 0.2s;
+        }
+    </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="text-[var(--page-text)]">
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('assets/photo-1517849845537-4d257902454a.jpg');">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-5xl md:text-6xl font-medium text-white mb-4">Happy Tails, Happy Hearts</h1>
+            <p class="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto">Real stories from real pet parents who trust Paw Pantry</p>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 max-w-6xl mx-auto">
+        <div class="relative rounded-2xl overflow-hidden min-h-[400px] flex items-end" style="background-image: url('assets/photo-1552053831-71594a27632d.jpg'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+            <div class="relative z-10 p-8 md:p-12 text-white max-w-3xl">
+                <div class="flex items-center gap-1 mb-3">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <p class="text-2xl md:text-3xl font-semibold italic mb-4">&ldquo;Paw Pantry completely transformed my dog&rsquo;s health. His coat is shinier, he has more energy, and he absolutely devours every meal!&rdquo;</p>
+                <div>
+                    <p class="text-lg font-medium">Sarah Mitchell</p>
+                    <p class="text-white/70">Mom to <span class="font-semibold">Bailey</span>, Golden Retriever</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 bg-[var(--section-alt-bg)]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-medium text-[var(--page-text)] mb-3">More Stories from Our Pack</h2>
+                <p class="text-[var(--page-text-muted)] max-w-xl mx-auto">Hear from pet parents who made the switch to healthier, happier feeding.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('assets/photo-1544568100-847a948585b9.jpg');"></div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <div class="flex items-center gap-1 mb-2">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        </div>
+                        <p class="text-[var(--page-text-muted)] text-sm italic mb-3">&ldquo;My picky eater finally cleans his bowl! The ingredients are so fresh I can see the difference.&rdquo;</p>
+                        <div class="mt-auto">
+                            <p class="font-semibold text-[var(--page-text)]">James Carter</p>
+                            <p class="text-xs text-[var(--page-text-muted)]">proud dad of <span class="font-medium">Max</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('assets/photo-1546527868-ccb7ee7dfa6a.jpg');"></div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <div class="flex items-center gap-1 mb-2">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        </div>
+                        <p class="text-[var(--page-text-muted)] text-sm italic mb-3">&ldquo;Delivery is always on time and the portions are perfect. My lab can&rsquo;t get enough!&rdquo;</p>
+                        <div class="mt-auto">
+                            <p class="font-semibold text-[var(--page-text)]">Emily Chen</p>
+                            <p class="text-xs text-[var(--page-text-muted)]">mom of <span class="font-medium">Rocky</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('assets/photo-1568572933382-74d440642117.jpg');"></div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <div class="flex items-center gap-1 mb-2">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        </div>
+                        <p class="text-[var(--page-text-muted)] text-sm italic mb-3">&ldquo;We switched from kibble and our vet noticed the improvement immediately. Highly recommend!&rdquo;</p>
+                        <div class="mt-auto">
+                            <p class="font-semibold text-[var(--page-text)]">David Torres</p>
+                            <p class="text-xs text-[var(--page-text-muted)]">dad to <span class="font-medium">Luna &amp; Milo</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('assets/photo-1494949649109-ecfc3b8c35df.jpg');"></div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <div class="flex items-center gap-1 mb-2">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        </div>
+                        <p class="text-[var(--page-text-muted)] text-sm italic mb-3">&ldquo;I love knowing exactly what goes into my pup&rsquo;s food. Real ingredients, real nutrition!&rdquo;</p>
+                        <div class="mt-auto">
+                            <p class="font-semibold text-[var(--page-text)]">Amanda Reyes</p>
+                            <p class="text-xs text-[var(--page-text-muted)]">mom of <span class="font-medium">Coco</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('assets/photo-1534361960057-19889db9621e.jpg');"></div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <div class="flex items-center gap-1 mb-2">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        </div>
+                        <p class="text-[var(--page-text-muted)] text-sm italic mb-3">&ldquo;My senior dog has so much more pep since starting Paw Pantry. It&rsquo;s been a game changer.&rdquo;</p>
+                        <div class="mt-auto">
+                            <p class="font-semibold text-[var(--page-text)]">Michael Grant</p>
+                            <p class="text-xs text-[var(--page-text-muted)]">dad to <span class="font-medium">Buddy</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('assets/photo-1541364983171-a8ba01e95cfc.jpg');"></div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <div class="flex items-center gap-1 mb-2">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        </div>
+                        <p class="text-[var(--page-text-muted)] text-sm italic mb-3">&ldquo;Two of my three dogs have sensitive stomachs and Paw Pantry solved all their issues.&rdquo;</p>
+                        <div class="mt-auto">
+                            <p class="font-semibold text-[var(--page-text)]">Olivia Park</p>
+                            <p class="text-xs text-[var(--page-text-muted)]">mom to <span class="font-medium">Daisy, Bella &amp; Charlie</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4">
+        <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <img src="assets/photo-1518717758536-85ae29035b6d.jpg" alt="" class="w-12 h-12 rounded-full object-cover mx-auto mb-3">
+                <p class="text-4xl md:text-5xl font-medium text-[var(--accent)]">10K+</p>
+                <p class="text-sm text-[var(--page-text-muted)] mt-1">Happy Pups</p>
+            </div>
+            <div>
+                <img src="assets/photo-1548199973-03cce0bbc87b.jpg" alt="" class="w-12 h-12 rounded-full object-cover mx-auto mb-3">
+                <p class="text-4xl md:text-5xl font-medium text-[var(--accent)]">50K+</p>
+                <p class="text-sm text-[var(--page-text-muted)] mt-1">Treats Delivered</p>
+            </div>
+            <div>
+                <img src="assets/photo-1494949649109-ecfc3b8c35df.jpg" alt="" class="w-12 h-12 rounded-full object-cover mx-auto mb-3">
+                <p class="text-4xl md:text-5xl font-medium text-[var(--accent)]">4.9</p>
+                <p class="text-sm text-[var(--page-text-muted)] mt-1">Avg Rating</p>
+            </div>
+            <div>
+                <img src="assets/photo-1534361960057-19889db9621e.jpg" alt="" class="w-12 h-12 rounded-full object-cover mx-auto mb-3">
+                <p class="text-4xl md:text-5xl font-medium text-[var(--accent)]">100%</p>
+                <p class="text-sm text-[var(--page-text-muted)] mt-1">Natural</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 bg-[var(--section-alt-bg)] relative overflow-hidden">
+        <img src="assets/photo-1544568100-847a948585b9.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-10">
+        <div class="relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-medium text-[var(--page-text)] mb-4">Share Your Story</h2>
+                <p class="text-[var(--page-text-muted)] mb-8 max-w-lg mx-auto">Join our pack of happy pet parents. Tell us how Paw Pantry has made a difference for your furry friend.</p>
+                <a href="#" class="inline-block bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold px-8 py-3 rounded-full transition">Submit Your Story</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+      (function () {
+        var html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark') {
+          html.classList.add('dark');
+        }
+        if (localStorage.getItem('dir') === 'rtl') {
+          html.dir = 'rtl';
+        }
+
+        var themeBarBtn = document.querySelector('#theme-bar [data-toggle="theme"]');
+        var dirBarBtn = document.querySelector('#theme-bar [data-toggle="dir"]');
+
+        if (themeBarBtn) {
+          themeBarBtn.onclick = function () {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+          };
+        }
+        if (dirBarBtn) {
+          dirBarBtn.onclick = function () {
+            var cur = html.dir || 'ltr';
+            html.dir = cur === 'rtl' ? 'ltr' : 'rtl';
+            localStorage.setItem('dir', html.dir);
+          };
+        }
+      })();
+    </script>
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

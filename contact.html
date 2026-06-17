@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class' }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #355E3B;
+            --primary-hover: #2a4a2f;
+            --accent: #F28C28;
+            --accent-hover: #d9771a;
+            --surface: #ffffff;
+            --surface-hover: #f3f4f6;
+            --surface-active: #e5e7eb;
+            --surface-muted: #f9fafb;
+            --text: #374151;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --border-muted: #f3f4f6;
+            --footer-bg: #ffffff;
+            --footer-text: #374151;
+            --footer-text-muted: #6b7280;
+            --page-bg: #f9fafb;
+            --page-text: #2D2A26;
+            --page-text-muted: #5C5852;
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+            --section-alt-bg: #F8F5EE;
+        }
+        .dark {
+            --primary: #4ade80;
+            --primary-hover: #22c55e;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --surface: #111111;
+            --surface-hover: #222222;
+            --surface-active: #2a2a2a;
+            --surface-muted: #000000;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border: #2a2a2a;
+            --border-muted: #1a1a1a;
+            --footer-bg: #000000;
+            --footer-text: #e5e7eb;
+            --footer-text-muted: #6b7280;
+            --page-bg: #000000;
+            --page-text: #e5e7eb;
+            --page-text-muted: #9ca3af;
+            --card-bg: #111111;
+            --card-border: #222222;
+            --section-alt-bg: #000000;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--page-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+        [dir="rtl"] [class*="space-x-"] > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+        }
+        @keyframes footerShimmer {
+            0% { background-position: 0% 0; }
+            100% { background-position: 300% 0; }
+        }
+        #theme-bar button {
+            transition: all 0.2s;
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details summary { cursor: pointer; list-style: none; }
+        details summary::marker { display: none; }
+        details[open] .faq-icon { transform: rotate(45deg); }
+        .faq-icon { transition: transform 0.3s; }
+        .form-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(53, 94, 59, 0.15); }
+        .dark .form-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.15); }
+    </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="text-[var(--page-text)]">
+
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+        <section class="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
+            <img src="assets/Get In Touch.jpg" alt="Get In Touch" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/60"></div>
+            <div class="relative text-center text-white z-10 px-6">
+                <span class="inline-flex items-center gap-2 bg-white/15 text-white text-xs font-bold uppercase tracking-[0.2em] px-5 py-2.5 rounded-full backdrop-blur-sm border border-white/20 mb-6">
+                    <i class="fas fa-paw"></i> We're Here to Help
+                </span>
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-medium text-white leading-[1.1] mb-4">
+                    Get In<br><span class="text-[var(--accent)]">Touch</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-6">We'd love to hear from you! Reach out and our pack will get back to you ASAP.</p>
+                <div class="flex flex-wrap justify-center gap-6 text-white/70 text-sm">
+                    <span><i class="fas fa-clock text-[var(--accent)] mr-1"></i> Mon–Fri 9am–6pm</span>
+                    <span><i class="fas fa-reply text-[var(--accent)] mr-1"></i> Response within 24hrs</span>
+                    <span><i class="fas fa-heart text-[var(--accent)] mr-1"></i> We love hearing from you</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-[var(--card-bg)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-address-card mr-2"></i>Connect With Us</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        Our Contact<br><span class="text-[var(--primary)]">Details</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col">
+                        <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <img src="assets/photo-1564890369478-c89ca6d9cde9.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10 flex flex-col flex-1">
+                            <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-2xl flex items-center justify-center text-[var(--primary)] text-2xl mx-auto mb-5 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">Address</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">123 Wagging Tail Lane<br>Pawville, CA 90210</p>
+                            <a href="https://maps.google.com/?q=123+Wagging+Tail+Lane+Pawville+CA+90210" target="_blank" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm mt-auto group-hover:gap-2 transition-all">Get Directions <i class="fas fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col">
+                        <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <img src="assets/photo-1518717758536-85ae29035b6d.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10 flex flex-col flex-1">
+                            <div class="w-16 h-16 bg-blue-50 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-500 text-2xl mx-auto mb-5 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">Email</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">hello@pawpantry.com</p>
+                            <a href="mailto:hello@pawpantry.com" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm mt-auto group-hover:gap-2 transition-all">Send Email <i class="fas fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col">
+                        <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <img src="assets/photo-1534361960057-19889db9621e.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10 flex flex-col flex-1">
+                            <div class="w-16 h-16 bg-amber-50 dark:bg-amber-900/30 rounded-2xl flex items-center justify-center text-amber-500 text-2xl mx-auto mb-5 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">Phone</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">(555) 123-PAWS</p>
+                            <a href="tel:+15551237297" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm mt-auto group-hover:gap-2 transition-all">Call Us <i class="fas fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-[var(--section-alt-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-paper-plane mr-2"></i>Get In Touch</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        Send Us a<br><span class="text-[var(--primary)]">Message</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <form class="space-y-5 bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] p-8 shadow-sm flex flex-col" onsubmit="event.preventDefault(); alert('Thanks for reaching out! We\'ll get back to you soon.')">
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <input type="text" placeholder="Your Name" required class="form-input w-full px-4 py-3.5 rounded-xl border text-sm outline-none transition-all bg-[var(--surface)] text-[var(--page-text)] border-[var(--border)] placeholder:text-[var(--text-muted)]">
+                            <input type="email" placeholder="Your Email" required class="form-input w-full px-4 py-3.5 rounded-xl border text-sm outline-none transition-all bg-[var(--surface)] text-[var(--page-text)] border-[var(--border)] placeholder:text-[var(--text-muted)]">
+                        </div>
+                        <input type="text" placeholder="Subject" required class="form-input w-full px-4 py-3.5 rounded-xl border text-sm outline-none transition-all bg-[var(--surface)] text-[var(--page-text)] border-[var(--border)] placeholder:text-[var(--text-muted)]">
+                        <textarea placeholder="Your Message" required class="form-input w-full px-4 py-3.5 rounded-xl border text-sm outline-none resize-y transition-all bg-[var(--surface)] text-[var(--page-text)] border-[var(--border)] placeholder:text-[var(--text-muted)] flex-1 min-h-[120px]"></textarea>
+                        <button type="submit" class="w-full sm:w-auto bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold px-10 py-3.5 rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer border-none">
+                            <i class="fas fa-paper-plane mr-2"></i> Send Message
+                        </button>
+                    </form>
+                    <div>
+                        <div class="rounded-2xl overflow-hidden border border-[var(--card-border)] shadow-sm relative group" style="height: 500px;">
+                            <iframe src="https://maps.google.com/maps?q=123+Wagging+Tail+Lane+Pawville+CA+90210&output=embed" width="100%" height="100%" frameborder="0" scrolling="no" title="Paw Pantry Location Map" class="grayscale group-hover:grayscale-0 transition-all duration-700" style="filter: grayscale(100%) hue-rotate(10deg);"></iframe>
+                            <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-5 pointer-events-none translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                                <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-xl px-4 py-3 flex items-center gap-3 shadow-lg">
+                                    <div class="w-10 h-10 rounded-full bg-[var(--primary)] flex items-center justify-center text-white shrink-0">
+                                        <i class="fas fa-store text-sm"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <p class="text-sm font-bold text-[var(--page-text)]">Paw Pantry HQ</p>
+                                        <p class="text-xs text-[var(--page-text-muted)]">123 Wagging Tail Lane, Pawville, CA 90210</p>
+                                    </div>
+                                    <a href="https://maps.google.com/?q=123+Wagging+Tail+Lane+Pawville+CA+90210" target="_blank" class="ml-auto pointer-events-auto bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-xs font-bold px-4 py-2 rounded-lg transition-all whitespace-nowrap shrink-0">
+                                        <i class="fas fa-external-link-alt mr-1"></i> Open
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-[var(--card-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-headset mr-2"></i>Why Reach Out</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        We're Here<br><span class="text-[var(--primary)]">to Help</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-8 rounded-2xl bg-[var(--section-alt-bg)] border border-[var(--card-border)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center text-[var(--primary)] text-3xl mx-auto mb-5">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">Expert Pet Support</h3>
+                        <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">Our trained pet nutrition team answers every question personally — no bots, no scripts.</p>
+                    </div>
+                    <div class="text-center p-8 rounded-2xl bg-[var(--section-alt-bg)] border border-[var(--card-border)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-16 h-16 bg-blue-50 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-500 text-3xl mx-auto mb-5">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">Lightning-Fast Replies</h3>
+                        <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">We respond within 24 hours — often within just a few hours during business days.</p>
+                    </div>
+                    <div class="text-center p-8 rounded-2xl bg-[var(--section-alt-bg)] border border-[var(--card-border)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-16 h-16 bg-amber-50 dark:bg-amber-900/30 rounded-full flex items-center justify-center text-amber-500 text-3xl mx-auto mb-5">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">Worry-Free Guarantee</h3>
+                        <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">Not happy? We'll make it right. Your satisfaction — and your pup's — is our top priority.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-[var(--section-alt-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-question-circle mr-2"></i>Common Questions</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        Frequently Asked<br><span class="text-[var(--primary)]">Questions</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="space-y-4">
+                    <details class="group bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl overflow-hidden hover:shadow-md transition-all">
+                        <summary class="flex items-center justify-between p-6 text-[var(--page-text)] font-bold text-lg cursor-pointer">
+                            <span><i class="fas fa-truck text-[var(--accent)] mr-3"></i> What are your shipping options?</span>
+                            <span class="faq-icon w-8 h-8 rounded-full bg-[var(--section-alt-bg)] flex items-center justify-center text-[var(--accent)] shrink-0 ml-4 group-open:bg-[var(--accent)] group-open:text-white transition-all">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-[var(--page-text-muted)] leading-relaxed">
+                            We offer free standard shipping on orders over $35. Express shipping (2-3 business days) is available for a flat $7.99. We ship to all 50 states and military APO/FPO addresses.
+                        </div>
+                    </details>
+                    <details class="group bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl overflow-hidden hover:shadow-md transition-all">
+                        <summary class="flex items-center justify-between p-6 text-[var(--page-text)] font-bold text-lg cursor-pointer">
+                            <span><i class="fas fa-dog text-[var(--accent)] mr-3"></i> Are your treats safe for puppies?</span>
+                            <span class="faq-icon w-8 h-8 rounded-full bg-[var(--section-alt-bg)] flex items-center justify-center text-[var(--accent)] shrink-0 ml-4 group-open:bg-[var(--accent)] group-open:text-white transition-all">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-[var(--page-text-muted)] leading-relaxed">
+                            Yes! Our soft training bites and puppy-sized biscuits are specially formulated for dogs aged 8 weeks and older. Always supervise your pup during treat time, and introduce new treats gradually.
+                        </div>
+                    </details>
+                    <details class="group bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl overflow-hidden hover:shadow-md transition-all">
+                        <summary class="flex items-center justify-between p-6 text-[var(--page-text)] font-bold text-lg cursor-pointer">
+                            <span><i class="fas fa-shield-alt text-[var(--accent)] mr-3"></i> Do you have a satisfaction guarantee?</span>
+                            <span class="faq-icon w-8 h-8 rounded-full bg-[var(--section-alt-bg)] flex items-center justify-center text-[var(--accent)] shrink-0 ml-4 group-open:bg-[var(--accent)] group-open:text-white transition-all">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-[var(--page-text-muted)] leading-relaxed">
+                            Absolutely! If your dog doesn't love our treats, we'll refund your order — no questions asked. That's the Paw Pantry promise! Just reach out to us within 30 days of purchase.
+                        </div>
+                    </details>
+                    <details class="group bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl overflow-hidden hover:shadow-md transition-all">
+                        <summary class="flex items-center justify-between p-6 text-[var(--page-text)] font-bold text-lg cursor-pointer">
+                            <span><i class="fas fa-leaf text-[var(--accent)] mr-3"></i> Where are your ingredients sourced?</span>
+                            <span class="faq-icon w-8 h-8 rounded-full bg-[var(--section-alt-bg)] flex items-center justify-center text-[var(--accent)] shrink-0 ml-4 group-open:bg-[var(--accent)] group-open:text-white transition-all">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-[var(--page-text-muted)] leading-relaxed">
+                            We source all ingredients from trusted US farms and global partners who share our commitment to quality. Our meats are always free-range or wild-caught, and our produce is non-GMO and pesticide-free.
+                        </div>
+                    </details>
+                    <details class="group bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl overflow-hidden hover:shadow-md transition-all">
+                        <summary class="flex items-center justify-between p-6 text-[var(--page-text)] font-bold text-lg cursor-pointer">
+                            <span><i class="fas fa-undo text-[var(--accent)] mr-3"></i> What is your return policy?</span>
+                            <span class="faq-icon w-8 h-8 rounded-full bg-[var(--section-alt-bg)] flex items-center justify-center text-[var(--accent)] shrink-0 ml-4 group-open:bg-[var(--accent)] group-open:text-white transition-all">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-[var(--page-text-muted)] leading-relaxed">
+                            We accept returns within 30 days of delivery for a full refund. Items must be at least half-full. Contact our support team and we'll send you a prepaid return label — no hassle, no fuss.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-[var(--page-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="bg-gradient-to-r from-[var(--primary)] to-[var(--primary-hover)] rounded-3xl p-12 md:p-16 relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-10">
+                        <div class="absolute -top-20 -right-20 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+                        <div class="absolute -bottom-20 -left-20 w-60 h-60 bg-white rounded-full blur-3xl"></div>
+                    </div>
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <span class="text-white/70 text-sm uppercase tracking-[0.2em] font-bold"><i class="fas fa-paw mr-2"></i> Stay In Touch</span>
+                            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-tight mt-3 mb-4">
+                                Get 15% Off<br>Your First Order
+                            </h2>
+                            <p class="text-white/80 text-lg max-w-lg">Subscribe for exclusive deals, new product alerts, and tips from our vet team.</p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 lg:justify-end w-full">
+                            <input type="email" placeholder="Enter your email" class="px-6 py-4 rounded-xl text-base outline-none w-full bg-white/15 backdrop-blur-sm border border-white/30 text-white placeholder-white/50 focus:bg-white/25 focus:border-white/50 transition-all">
+                            <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 whitespace-nowrap cursor-pointer border-none">
+                                <i class="fas fa-paper-plane mr-2"></i> Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+      (function () {
+        var html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark') {
+          html.classList.add('dark');
+        }
+        if (localStorage.getItem('dir') === 'rtl') {
+          html.dir = 'rtl';
+        }
+
+        var themeBarBtn = document.querySelector('#theme-bar [data-toggle="theme"]');
+        var dirBarBtn = document.querySelector('#theme-bar [data-toggle="dir"]');
+
+        if (themeBarBtn) {
+          themeBarBtn.onclick = function () {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+          };
+        }
+        if (dirBarBtn) {
+          dirBarBtn.onclick = function () {
+            var cur = html.dir || 'ltr';
+            html.dir = cur === 'rtl' ? 'ltr' : 'rtl';
+            localStorage.setItem('dir', html.dir);
+          };
+        }
+      })();
+    </script>
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class' }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #355E3B;
+            --primary-hover: #2a4a2f;
+            --accent: #F28C28;
+            --accent-hover: #d9771a;
+            --surface: #ffffff;
+            --surface-hover: #f3f4f6;
+            --surface-active: #e5e7eb;
+            --surface-muted: #f9fafb;
+            --text: #374151;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --border-muted: #f3f4f6;
+            --footer-bg: #ffffff;
+            --footer-text: #374151;
+            --footer-text-muted: #6b7280;
+            --page-bg: #f9fafb;
+            --page-text: #2D2A26;
+            --page-text-muted: #5C5852;
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+            --section-alt-bg: #F8F5EE;
+        }
+        .dark {
+            --primary: #4ade80;
+            --primary-hover: #22c55e;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --surface: #111111;
+            --surface-hover: #222222;
+            --surface-active: #2a2a2a;
+            --surface-muted: #000000;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border: #2a2a2a;
+            --border-muted: #1a1a1a;
+            --footer-bg: #000000;
+            --footer-text: #e5e7eb;
+            --footer-text-muted: #6b7280;
+            --page-bg: #000000;
+            --page-text: #e5e7eb;
+            --page-text-muted: #9ca3af;
+            --card-bg: #111111;
+            --card-border: #222222;
+            --section-alt-bg: #000000;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--page-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+        [dir="rtl"] [class*="space-x-"] > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+        }
+        @keyframes footerShimmer {
+            0% { background-position: 0% 0; }
+            100% { background-position: 300% 0; }
+        }
+        #theme-bar button {
+            transition: all 0.2s;
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details summary { cursor: pointer; list-style: none; }
+        details summary::marker { display: none; }
+        details[open] .faq-icon { transform: rotate(45deg); }
+        .faq-icon { transition: transform 0.3s; }
+    </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="text-[var(--page-text)]">
+
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+        <section class="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
+            <img src="assets/Nutrition for dogs.jpg" alt="Nutrition Guides" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/60"></div>
+            <div class="relative text-center text-white z-10 px-6">
+                <span class="inline-flex items-center gap-2 bg-white/15 text-white text-xs font-bold uppercase tracking-[0.2em] px-5 py-2.5 rounded-full backdrop-blur-sm border border-white/20 mb-6">
+                    <i class="fas fa-book-open"></i> Expert Resources
+                </span>
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-medium text-white leading-[1.1] mb-4">
+                    Nutrition<br><span class="text-[var(--accent)]">Guides</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-6">Everything you need to know about feeding your dog a healthier, happier diet.</p>
+                <div class="flex flex-wrap justify-center gap-6 text-white/70 text-sm">
+                    <span><i class="fas fa-check-circle text-[var(--accent)] mr-1"></i> Vet Approved</span>
+                    <span><i class="fas fa-flask text-[var(--accent)] mr-1"></i> Science-Backed</span>
+                    <span><i class="fas fa-dog text-[var(--accent)] mr-1"></i> Breed Specific</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-[var(--card-bg)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-pen-fancy mr-2"></i>From Our Experts</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        Latest<br><span class="text-[var(--primary)]">Articles</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden h-52">
+                            <img src="assets/The Power of Single Ingredients.jpg" alt="The Power of Single Ingredients" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                            <span class="absolute top-3 left-3 bg-[var(--accent)] text-white text-xs font-bold px-3 py-1 rounded-full">Nutrition</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="flex items-center gap-3 text-xs text-[var(--page-text-muted)] mb-3">
+                                <span><i class="far fa-calendar mr-1"></i> Jun 10, 2026</span>
+                                <span><i class="far fa-clock mr-1"></i> 5 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--page-text)] mb-2">The Power of Single Ingredients</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] mb-5 leading-relaxed">Discover why minimalist recipes with one protein source can transform your dog's digestion and coat health.</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-[var(--primary)] flex items-center justify-center text-white text-xs font-bold">JD</div>
+                                    <span class="text-xs text-[var(--page-text-muted)]">Dr. Jane Doe</span>
+                                </div>
+                                <a href="#" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm group-hover:gap-2 transition-all">Read <i class="fas fa-arrow-right text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden h-52">
+                            <img src="assets/Why Grain-Free Matters.jpg" alt="Why Grain-Free Matters" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                            <span class="absolute top-3 left-3 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">Health</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="flex items-center gap-3 text-xs text-[var(--page-text-muted)] mb-3">
+                                <span><i class="far fa-calendar mr-1"></i> May 28, 2026</span>
+                                <span><i class="far fa-clock mr-1"></i> 7 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--page-text)] mb-2">Why Grain-Free Matters</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] mb-5 leading-relaxed">An in-depth look at how grain-free nutrition supports energy levels, digestion, and allergy relief in dogs.</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs font-bold">MK</div>
+                                    <span class="text-xs text-[var(--page-text-muted)]">Dr. Mike Katz</span>
+                                </div>
+                                <a href="#" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm group-hover:gap-2 transition-all">Read <i class="fas fa-arrow-right text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden h-52">
+                            <img src="assets/Reading Labels 101.jpg" alt="Reading Labels 101" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                            <span class="absolute top-3 left-3 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">Feeding Tips</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="flex items-center gap-3 text-xs text-[var(--page-text-muted)] mb-3">
+                                <span><i class="far fa-calendar mr-1"></i> May 15, 2026</span>
+                                <span><i class="far fa-clock mr-1"></i> 6 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--page-text)] mb-2">Reading Labels 101</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] mb-5 leading-relaxed">Learn how to decode pet food labels so you can spot fillers, by-products, and misleading claims at a glance.</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-white text-xs font-bold">SL</div>
+                                    <span class="text-xs text-[var(--page-text-muted)]">Dr. Sarah Li</span>
+                                </div>
+                                <a href="#" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm group-hover:gap-2 transition-all">Read <i class="fas fa-arrow-right text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden h-52">
+                            <img src="assets/Superfoods for Dogs.jpg" alt="Superfoods for Dogs" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                            <span class="absolute top-3 left-3 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">Nutrition</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="flex items-center gap-3 text-xs text-[var(--page-text-muted)] mb-3">
+                                <span><i class="far fa-calendar mr-1"></i> Apr 30, 2026</span>
+                                <span><i class="far fa-clock mr-1"></i> 4 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--page-text)] mb-2">Superfoods for Dogs</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] mb-5 leading-relaxed">Blueberries, kale, turmeric — explore the superfoods that give your dog's immune system a natural boost.</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white text-xs font-bold">TR</div>
+                                    <span class="text-xs text-[var(--page-text-muted)]">Dr. Tom Rivera</span>
+                                </div>
+                                <a href="#" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm group-hover:gap-2 transition-all">Read <i class="fas fa-arrow-right text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden h-52">
+                            <img src="assets/Puppy Nutrition Essentials.jpg" alt="Puppy Nutrition Essentials" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                            <span class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full">Puppy Care</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="flex items-center gap-3 text-xs text-[var(--page-text-muted)] mb-3">
+                                <span><i class="far fa-calendar mr-1"></i> Apr 18, 2026</span>
+                                <span><i class="far fa-clock mr-1"></i> 8 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--page-text)] mb-2">Puppy Nutrition Essentials</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] mb-5 leading-relaxed">Everything you need to feed your growing pup — from weaning to portion sizes and the best first foods.</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center text-white text-xs font-bold">AN</div>
+                                    <span class="text-xs text-[var(--page-text-muted)]">Dr. Amy Ng</span>
+                                </div>
+                                <a href="#" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm group-hover:gap-2 transition-all">Read <i class="fas fa-arrow-right text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden h-52">
+                            <img src="assets/The Hydration Handbook.jpg" alt="The Hydration Handbook" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                            <span class="absolute top-3 left-3 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">Health</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="flex items-center gap-3 text-xs text-[var(--page-text-muted)] mb-3">
+                                <span><i class="far fa-calendar mr-1"></i> Apr 5, 2026</span>
+                                <span><i class="far fa-clock mr-1"></i> 5 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--page-text)] mb-2">The Hydration Handbook</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] mb-5 leading-relaxed">Why water is the most overlooked nutrient — tips to keep your dog hydrated and healthy year-round.</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs font-bold">CP</div>
+                                    <span class="text-xs text-[var(--page-text-muted)]">Dr. Chris Park</span>
+                                </div>
+                                <a href="#" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm group-hover:gap-2 transition-all">Read <i class="fas fa-arrow-right text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-[var(--section-alt-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-seedling mr-2"></i>Nutritional Powerhouses</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        Ingredient<br><span class="text-[var(--primary)]">Spotlight</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden h-44">
+                            <img src="assets/Chicken-Free Strips.jpg" alt="Chicken" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 text-white">
+                                <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white mb-1">
+                                    <i class="fas fa-drumstick-bite text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-1">Chicken</h3>
+                            <p class="text-sm text-[var(--page-text-muted)]">Lean protein for strong muscles and healthy growth.</p>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden h-44">
+                            <img src="assets/Salmon Skin Rolls.jpg" alt="Salmon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 text-white">
+                                <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white mb-1">
+                                    <i class="fas fa-fish text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-1">Salmon</h3>
+                            <p class="text-sm text-[var(--page-text-muted)]">Omega-3 fatty acids for a shiny coat and healthy joints.</p>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden h-44">
+                            <img src="assets/Blueberries.jpg" alt="Blueberries" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 text-white">
+                                <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white mb-1">
+                                    <i class="fas fa-apple-alt text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-1">Blueberries</h3>
+                            <p class="text-sm text-[var(--page-text-muted)]">Antioxidant-rich superfood for immune system support.</p>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden h-44">
+                            <img src="assets/Sweet Potato Chews.jpg" alt="Sweet Potato" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 text-white">
+                                <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white mb-1">
+                                    <i class="fas fa-carrot text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-1">Sweet Potato</h3>
+                            <p class="text-sm text-[var(--page-text-muted)]">Fiber and vitamin-rich root for gentle digestion.</p>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden h-44">
+                            <img src="assets/Pumpkin Harvest Bites.jpg" alt="Pumpkin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 text-white">
+                                <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white mb-1">
+                                    <i class="fas fa-seedling text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-1">Pumpkin</h3>
+                            <p class="text-sm text-[var(--page-text-muted)]">Soluble fiber that soothes upset stomachs and regulates digestion.</p>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden h-44">
+                            <img src="assets/Kale" alt="Kale" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 text-white">
+                                <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white mb-1">
+                                    <i class="fas fa-leaf text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-1">Kale</h3>
+                            <p class="text-sm text-[var(--page-text-muted)]">Packed with vitamins A, C, and K for overall vitality and immunity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-[var(--card-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-table mr-2"></i>Quick Reference</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        Nutritional Benefits<br><span class="text-[var(--primary)]">At a Glance</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="overflow-x-auto rounded-2xl border border-[var(--card-border)] shadow-sm">
+                    <table class="w-full text-left border-collapse bg-[var(--card-bg)]">
+                        <thead>
+                            <tr class="bg-[var(--primary)] text-white">
+                                <th class="p-4 font-semibold">#</th>
+                                <th class="p-4 font-semibold">Ingredient</th>
+                                <th class="p-4 font-semibold">Benefit</th>
+                                <th class="p-4 font-semibold">Best For</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[var(--border)]">
+                            <tr class="hover:bg-[var(--surface-hover)] transition">
+                                <td class="p-4 text-[var(--text-muted)] font-mono text-sm">01</td>
+                                <td class="p-4 font-medium">Chicken</td>
+                                <td class="p-4 text-[var(--text-muted)]">Lean protein for muscle development</td>
+                                <td class="p-4 text-[var(--text-muted)]">Active & growing dogs</td>
+                            </tr>
+                            <tr class="hover:bg-[var(--surface-hover)] transition">
+                                <td class="p-4 text-[var(--text-muted)] font-mono text-sm">02</td>
+                                <td class="p-4 font-medium">Salmon</td>
+                                <td class="p-4 text-[var(--text-muted)]">Omega-3 for coat & joint health</td>
+                                <td class="p-4 text-[var(--text-muted)]">Sensitive skin & seniors</td>
+                            </tr>
+                            <tr class="hover:bg-[var(--surface-hover)] transition">
+                                <td class="p-4 text-[var(--text-muted)] font-mono text-sm">03</td>
+                                <td class="p-4 font-medium">Sweet Potato</td>
+                                <td class="p-4 text-[var(--text-muted)]">Fiber & vitamins for digestion</td>
+                                <td class="p-4 text-[var(--text-muted)]">Sensitive stomachs</td>
+                            </tr>
+                            <tr class="hover:bg-[var(--surface-hover)] transition">
+                                <td class="p-4 text-[var(--text-muted)] font-mono text-sm">04</td>
+                                <td class="p-4 font-medium">Blueberries</td>
+                                <td class="p-4 text-[var(--text-muted)]">Antioxidants for immunity</td>
+                                <td class="p-4 text-[var(--text-muted)]">All breeds</td>
+                            </tr>
+                            <tr class="hover:bg-[var(--surface-hover)] transition">
+                                <td class="p-4 text-[var(--text-muted)] font-mono text-sm">05</td>
+                                <td class="p-4 font-medium">Turmeric</td>
+                                <td class="p-4 text-[var(--text-muted)]">Anti-inflammatory properties</td>
+                                <td class="p-4 text-[var(--text-muted)]">Senior & arthritic dogs</td>
+                            </tr>
+                            <tr class="hover:bg-[var(--surface-hover)] transition">
+                                <td class="p-4 text-[var(--text-muted)] font-mono text-sm">06</td>
+                                <td class="p-4 font-medium">Pumpkin</td>
+                                <td class="p-4 text-[var(--text-muted)]">Soluble fiber for digestion</td>
+                                <td class="p-4 text-[var(--text-muted)]">Upset stomachs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-[var(--section-alt-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-paw mr-2"></i>Tailored Nutrition</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        Feeding by<br><span class="text-[var(--primary)]">Life Stage</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+                        <div class="absolute inset-0 opacity-15 group-hover:opacity-25 transition-opacity">
+                            <img src="assets/photo-1517849845537-4d257902454a.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10 p-8 text-center">
+                            <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-2xl flex items-center justify-center text-[var(--primary)] text-2xl mx-auto mb-5 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-baby"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">Puppy</h3>
+                            <ul class="text-sm text-[var(--page-text-muted)] space-y-2 text-left">
+                                <li><i class="fas fa-check text-[var(--primary)] mr-2"></i>High-protein formula</li>
+                                <li><i class="fas fa-check text-[var(--primary)] mr-2"></i>DHA for brain development</li>
+                                <li><i class="fas fa-check text-[var(--primary)] mr-2"></i>Small, frequent meals</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+                        <div class="absolute inset-0 opacity-15 group-hover:opacity-25 transition-opacity">
+                            <img src="assets/photo-1548199973-03cce0bbc87b.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10 p-8 text-center">
+                            <div class="w-16 h-16 bg-blue-50 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-500 text-2xl mx-auto mb-5 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-dog"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">Adult</h3>
+                            <ul class="text-sm text-[var(--page-text-muted)] space-y-2 text-left">
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>Balanced protein & fat</li>
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>Joint support blend</li>
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>Weight management</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+                        <div class="absolute inset-0 opacity-15 group-hover:opacity-25 transition-opacity">
+                            <img src="assets/photo-1601758228041-f3b2795255f1.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10 p-8 text-center">
+                            <div class="w-16 h-16 bg-amber-50 dark:bg-amber-900/30 rounded-2xl flex items-center justify-center text-amber-500 text-2xl mx-auto mb-5 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-cane"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">Senior</h3>
+                            <ul class="text-sm text-[var(--page-text-muted)] space-y-2 text-left">
+                                <li><i class="fas fa-check text-amber-500 mr-2"></i>Lower calorie density</li>
+                                <li><i class="fas fa-check text-amber-500 mr-2"></i>Omega-3 for joints</li>
+                                <li><i class="fas fa-check text-amber-500 mr-2"></i>Easy-to-chew texture</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+                        <div class="absolute inset-0 opacity-15 group-hover:opacity-25 transition-opacity">
+                            <img src="assets/d1.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10 p-8 text-center">
+                            <div class="w-16 h-16 bg-red-50 dark:bg-red-900/30 rounded-2xl flex items-center justify-center text-red-500 text-2xl mx-auto mb-5 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">Active</h3>
+                            <ul class="text-sm text-[var(--page-text-muted)] space-y-2 text-left">
+                                <li><i class="fas fa-check text-red-500 mr-2"></i>High-calorie fuel</li>
+                                <li><i class="fas fa-check text-red-500 mr-2"></i>Extra protein for muscle</li>
+                                <li><i class="fas fa-check text-red-500 mr-2"></i>Electrolyte support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-[var(--card-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-question-circle mr-2"></i>Got Questions?</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        Ask Our<br><span class="text-[var(--primary)]">Nutritionist</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="space-y-4">
+                    <details class="group bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl overflow-hidden hover:shadow-md transition-all">
+                        <summary class="flex items-center justify-between p-6 text-[var(--page-text)] font-bold text-lg cursor-pointer">
+                            <span>How much should I feed my dog each day?</span>
+                            <span class="faq-icon w-8 h-8 rounded-full bg-[var(--section-alt-bg)] flex items-center justify-center text-[var(--accent)] shrink-0 ml-4 group-open:bg-[var(--accent)] group-open:text-white transition-all">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-[var(--page-text-muted)] leading-relaxed">
+                            Portion sizes depend on your dog's weight, age, activity level, and the specific food's calorie density. As a general rule, adult dogs need about 25-30 calories per pound of body weight per day. Always check the feeding guide on your food's packaging and consult your veterinarian for personalized recommendations.
+                        </div>
+                    </details>
+                    <details class="group bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl overflow-hidden hover:shadow-md transition-all">
+                        <summary class="flex items-center justify-between p-6 text-[var(--page-text)] font-bold text-lg cursor-pointer">
+                            <span>Can I mix wet and dry food?</span>
+                            <span class="faq-icon w-8 h-8 rounded-full bg-[var(--section-alt-bg)] flex items-center justify-center text-[var(--accent)] shrink-0 ml-4 group-open:bg-[var(--accent)] group-open:text-white transition-all">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-[var(--page-text-muted)] leading-relaxed">
+                            Absolutely! Combining wet and dry food can add variety, increase hydration, and make meals more appealing. Just be sure to adjust portions to avoid overfeeding — count the calories from both types. Many pet parents find a 75% dry / 25% wet mix works well.
+                        </div>
+                    </details>
+                    <details class="group bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl overflow-hidden hover:shadow-md transition-all">
+                        <summary class="flex items-center justify-between p-6 text-[var(--page-text)] font-bold text-lg cursor-pointer">
+                            <span>What ingredients should I avoid?</span>
+                            <span class="faq-icon w-8 h-8 rounded-full bg-[var(--section-alt-bg)] flex items-center justify-center text-[var(--accent)] shrink-0 ml-4 group-open:bg-[var(--accent)] group-open:text-white transition-all">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-[var(--page-text-muted)] leading-relaxed">
+                            Watch out for artificial preservatives (BHA, BHT, ethoxyquin), artificial colors, corn syrup, propylene glycol, and unspecified "meat by-products." Look for named protein sources (e.g., "chicken" not "poultry meal") and whole food ingredients you recognize. When in doubt, if you wouldn't eat it, your dog probably shouldn't either.
+                        </div>
+                    </details>
+                    <details class="group bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl overflow-hidden hover:shadow-md transition-all">
+                        <summary class="flex items-center justify-between p-6 text-[var(--page-text)] font-bold text-lg cursor-pointer">
+                            <span>Is grain-free food better for all dogs?</span>
+                            <span class="faq-icon w-8 h-8 rounded-full bg-[var(--section-alt-bg)] flex items-center justify-center text-[var(--accent)] shrink-0 ml-4 group-open:bg-[var(--accent)] group-open:text-white transition-all">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-[var(--page-text-muted)] leading-relaxed">
+                            Not necessarily. Grain-free diets are beneficial for dogs with grain allergies or sensitivities, but most dogs digest grains like rice and oats perfectly well. The key is the quality of ingredients, not whether grains are present. If your dog has itchy skin or digestive issues, talk to your vet about whether a grain-free trial makes sense.
+                        </div>
+                    </details>
+                    <details class="group bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl overflow-hidden hover:shadow-md transition-all">
+                        <summary class="flex items-center justify-between p-6 text-[var(--page-text)] font-bold text-lg cursor-pointer">
+                            <span>How do I transition my dog to new food?</span>
+                            <span class="faq-icon w-8 h-8 rounded-full bg-[var(--section-alt-bg)] flex items-center justify-center text-[var(--accent)] shrink-0 ml-4 group-open:bg-[var(--accent)] group-open:text-white transition-all">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-[var(--page-text-muted)] leading-relaxed">
+                            Always transition gradually over 7-10 days to avoid digestive upset. Start with 25% new food / 75% old food for days 1-3, then 50/50 for days 4-6, then 75/25 for days 7-9, and finally 100% new food on day 10. Watch for loose stool or reduced appetite and slow down the transition if needed.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-[var(--page-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="bg-gradient-to-r from-[var(--primary)] to-[var(--primary-hover)] rounded-3xl p-12 md:p-16 relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-10">
+                        <div class="absolute -top-20 -right-20 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+                        <div class="absolute -bottom-20 -left-20 w-60 h-60 bg-white rounded-full blur-3xl"></div>
+                    </div>
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <span class="text-white/70 text-sm uppercase tracking-[0.2em] font-bold"><i class="fas fa-download mr-2"></i>Free Resource</span>
+                            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-tight mt-3 mb-4">
+                                Get Your Free<br>Nutrition Guide
+                            </h2>
+                            <p class="text-white/80 text-lg max-w-lg">Download our comprehensive guide to canine nutrition — packed with expert tips, feeding charts, and recipe ideas.</p>
+                            <div class="flex items-center gap-4 mt-6 text-white/60 text-sm">
+                                <span><i class="fas fa-check-circle mr-1"></i> 50+ Pages</span>
+                                <span><i class="fas fa-check-circle mr-1"></i> Vet Reviewed</span>
+                                <span><i class="fas fa-check-circle mr-1"></i> Free Download</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 lg:justify-end w-full">
+                            <input type="email" placeholder="Enter your email" class="px-6 py-4 rounded-xl text-base outline-none w-full bg-white/15 backdrop-blur-sm border border-white/30 text-white placeholder-white/50 focus:bg-white/25 focus:border-white/50 transition-all">
+                            <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 whitespace-nowrap cursor-pointer border-none">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Guide
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+      (function () {
+        var html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark') {
+          html.classList.add('dark');
+        }
+        if (localStorage.getItem('dir') === 'rtl') {
+          html.dir = 'rtl';
+        }
+
+        var themeBarBtn = document.querySelector('#theme-bar [data-toggle="theme"]');
+        var dirBarBtn = document.querySelector('#theme-bar [data-toggle="dir"]');
+
+        if (themeBarBtn) {
+          themeBarBtn.onclick = function () {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+          };
+        }
+        if (dirBarBtn) {
+          dirBarBtn.onclick = function () {
+            var cur = html.dir || 'ltr';
+            html.dir = cur === 'rtl' ? 'ltr' : 'rtl';
+            localStorage.setItem('dir', html.dir);
+          };
+        }
+      })();
+    </script>
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

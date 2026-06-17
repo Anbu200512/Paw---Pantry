@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class' }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #355E3B;
+            --primary-hover: #2a4a2f;
+            --accent: #F28C28;
+            --accent-hover: #d9771a;
+            --surface: #ffffff;
+            --surface-hover: #f3f4f6;
+            --surface-active: #e5e7eb;
+            --surface-muted: #f9fafb;
+            --text: #374151;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --border-muted: #f3f4f6;
+            --footer-bg: #ffffff;
+            --footer-text: #374151;
+            --footer-text-muted: #6b7280;
+            --page-bg: #f9fafb;
+            --page-text: #2D2A26;
+            --page-text-muted: #5C5852;
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+            --section-alt-bg: #F8F5EE;
+        }
+        .dark {
+            --primary: #4ade80;
+            --primary-hover: #22c55e;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --surface: #111111;
+            --surface-hover: #222222;
+            --surface-active: #2a2a2a;
+            --surface-muted: #000000;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border: #2a2a2a;
+            --border-muted: #1a1a1a;
+            --footer-bg: #000000;
+            --footer-text: #e5e7eb;
+            --footer-text-muted: #6b7280;
+            --page-bg: #000000;
+            --page-text: #e5e7eb;
+            --page-text-muted: #9ca3af;
+            --card-bg: #111111;
+            --card-border: #222222;
+            --section-alt-bg: #000000;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--page-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+        [dir="rtl"] [class*="space-x-"] > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+        }
+        @keyframes footerShimmer {
+            0% { background-position: 0% 0; }
+            100% { background-position: 300% 0; }
+        }
+        #theme-bar button {
+            transition: all 0.2s;
+        }
+    </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="text-[var(--page-text)]">
+
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+        <section class="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
+            <img src="assets/shop.jpg" alt="Shop Our Treats" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/60"></div>
+            <div class="relative text-center text-white z-10 px-6">
+                <span class="inline-flex items-center gap-2 bg-white/15 text-white text-xs font-bold uppercase tracking-[0.2em] px-5 py-2.5 rounded-full backdrop-blur-sm border border-white/20 mb-6">
+                    <i class="fas fa-store"></i> Our Treat Shop
+                </span>
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-medium text-white leading-[1.1] mb-4">
+                    Shop Our<br><span class="text-[var(--accent)]">Treats</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-6">Handcrafted with love. Every bite is a tail-wagging guarantee.</p>
+                <div class="flex flex-wrap justify-center gap-6 text-white/70 text-sm">
+                    <span><i class="fas fa-paw text-[var(--accent)] mr-1"></i> 12 Organic Recipes</span>
+                    <span><i class="fas fa-paw text-[var(--accent)] mr-1"></i> Free Shipping $50+</span>
+                    <span><i class="fas fa-paw text-[var(--accent)] mr-1"></i> 100% Happiness Guarantee</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-6 px-4 sticky top-0 z-20 border-b border-[var(--card-border)]" style="background-color: var(--page-bg);">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-wrap items-center justify-center gap-3">
+                    <button class="px-6 py-2.5 rounded-full text-sm font-bold border-none cursor-pointer text-white bg-[var(--primary)] hover:bg-[var(--primary-hover)] shadow-md transition-all"><i class="fas fa-th-large mr-1.5"></i>All</button>
+                    <button class="px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer bg-[var(--card-bg)] text-[var(--page-text)] border border-[var(--card-border)] hover:border-[var(--primary)] hover:text-[var(--primary)] hover:bg-[var(--primary)]/5 transition-all"><i class="fas fa-bone mr-1.5"></i>Biscuits</button>
+                    <button class="px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer bg-[var(--card-bg)] text-[var(--page-text)] border border-[var(--card-border)] hover:border-[var(--primary)] hover:text-[var(--primary)] hover:bg-[var(--primary)]/5 transition-all"><i class="fas fa-tooth mr-1.5"></i>Chews</button>
+                    <button class="px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer bg-[var(--card-bg)] text-[var(--page-text)] border border-[var(--card-border)] hover:border-[var(--primary)] hover:text-[var(--primary)] hover:bg-[var(--primary)]/5 transition-all"><i class="fas fa-snowflake mr-1.5"></i>Freeze-Dried</button>
+                    <button class="px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer bg-[var(--card-bg)] text-[var(--page-text)] border border-[var(--card-border)] hover:border-[var(--primary)] hover:text-[var(--primary)] hover:bg-[var(--primary)]/5 transition-all"><i class="fas fa-cube mr-1.5"></i>Soft Treats</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="assets/Peanut Butter Bites.jpg" alt="Peanut Butter Biscuits" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute top-3 left-3 bg-[var(--accent)] text-white text-xs font-bold px-3 py-1 rounded-full">Best Seller</div>
+                            <button class="absolute top-3 right-3 w-8 h-8 bg-white/80 dark:bg-gray-800/80 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 hover:text-red-500 transition-all opacity-0 group-hover:opacity-100">
+                                <i class="far fa-heart text-sm"></i>
+                            </button>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center gap-1 mb-1 text-[var(--accent)] text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-[var(--page-text-muted)] ml-1">(42)</span>
+                            </div>
+                            <h3 class="font-bold text-[var(--page-text)]">Peanut Butter Biscuits</h3>
+                            <p class="text-xs text-[var(--page-text-muted)] mb-3">Classic crunchy biscuits</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <p class="text-xl font-medium text-[var(--primary)]">$12.99</p>
+                                <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105">
+                                    <i class="fas fa-plus mr-1"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="assets/Sweet Potato Chews.jpg" alt="Sweet Potato Chews" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Organic</div>
+                            <button class="absolute top-3 right-3 w-8 h-8 bg-white/80 dark:bg-gray-800/80 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 hover:text-red-500 transition-all opacity-0 group-hover:opacity-100">
+                                <i class="far fa-heart text-sm"></i>
+                            </button>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center gap-1 mb-1 text-[var(--accent)] text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-[var(--page-text-muted)] ml-1">(68)</span>
+                            </div>
+                            <h3 class="font-bold text-[var(--page-text)]">Sweet Potato Chews</h3>
+                            <p class="text-xs text-[var(--page-text-muted)] mb-3">Natural long-lasting chews</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <p class="text-xl font-medium text-[var(--primary)]">$14.99</p>
+                                <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105">
+                                    <i class="fas fa-plus mr-1"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="assets/chicken.jpg" alt="Chicken-Free Strips" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <button class="absolute top-3 right-3 w-8 h-8 bg-white/80 dark:bg-gray-800/80 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 hover:text-red-500 transition-all opacity-0 group-hover:opacity-100">
+                                <i class="far fa-heart text-sm"></i>
+                            </button>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center gap-1 mb-1 text-[var(--accent)] text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-[var(--page-text-muted)] ml-1">(55)</span>
+                            </div>
+                            <h3 class="font-bold text-[var(--page-text)]">Chicken-Free Strips</h3>
+                            <p class="text-xs text-[var(--page-text-muted)] mb-3">Tender freeze-dried chicken</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <p class="text-xl font-medium text-[var(--primary)]">$16.99</p>
+                                <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105">
+                                    <i class="fas fa-plus mr-1"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="assets/Dental Bones.jpg" alt="Dental Bones" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute top-3 left-3 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">Sale</div>
+                            <button class="absolute top-3 right-3 w-8 h-8 bg-white/80 dark:bg-gray-800/80 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 hover:text-red-500 transition-all opacity-0 group-hover:opacity-100">
+                                <i class="far fa-heart text-sm"></i>
+                            </button>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center gap-1 mb-1 text-[var(--accent)] text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fa-regular fa-star"></i>
+                                <span class="text-[var(--page-text-muted)] ml-1">(31)</span>
+                            </div>
+                            <h3 class="font-bold text-[var(--page-text)]">Dental Bones</h3>
+                            <p class="text-xs text-[var(--page-text-muted)] mb-3">Crunchy teeth-cleaning bones</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <p class="text-xl font-medium text-[var(--primary)]">$11.99</p>
+                                <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105">
+                                    <i class="fas fa-plus mr-1"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="assets/Liver Training Bites.jpg" alt="Liver Training Bites" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute top-3 left-3 bg-[var(--accent)] text-white text-xs font-bold px-3 py-1 rounded-full">Best Seller</div>
+                            <button class="absolute top-3 right-3 w-8 h-8 bg-white/80 dark:bg-gray-800/80 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 hover:text-red-500 transition-all opacity-0 group-hover:opacity-100">
+                                <i class="far fa-heart text-sm"></i>
+                            </button>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center gap-1 mb-1 text-[var(--accent)] text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-[var(--page-text-muted)] ml-1">(89)</span>
+                            </div>
+                            <h3 class="font-bold text-[var(--page-text)]">Liver Training Bites</h3>
+                            <p class="text-xs text-[var(--page-text-muted)] mb-3">Irresistible soft training treats</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <p class="text-xl font-medium text-[var(--primary)]">$9.99</p>
+                                <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105">
+                                    <i class="fas fa-plus mr-1"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="assets/Salmon Skin Rolls.jpg" alt="Salmon Skin Rolls" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <button class="absolute top-3 right-3 w-8 h-8 bg-white/80 dark:bg-gray-800/80 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 hover:text-red-500 transition-all opacity-0 group-hover:opacity-100">
+                                <i class="far fa-heart text-sm"></i>
+                            </button>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center gap-1 mb-1 text-[var(--accent)] text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-[var(--page-text-muted)] ml-1">(47)</span>
+                            </div>
+                            <h3 class="font-bold text-[var(--page-text)]">Salmon Skin Rolls</h3>
+                            <p class="text-xs text-[var(--page-text-muted)] mb-3">Crunchy omega-rich rolls</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <p class="text-xl font-medium text-[var(--primary)]">$18.99</p>
+                                <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105">
+                                    <i class="fas fa-plus mr-1"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="assets/Pumpkin Pupcakes.jpg" alt="Pumpkin Pupcakes" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Organic</div>
+                            <button class="absolute top-3 right-3 w-8 h-8 bg-white/80 dark:bg-gray-800/80 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 hover:text-red-500 transition-all opacity-0 group-hover:opacity-100">
+                                <i class="far fa-heart text-sm"></i>
+                            </button>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center gap-1 mb-1 text-[var(--accent)] text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fa-regular fa-star"></i>
+                                <span class="text-[var(--page-text-muted)] ml-1">(24)</span>
+                            </div>
+                            <h3 class="font-bold text-[var(--page-text)]">Pumpkin Pupcakes</h3>
+                            <p class="text-xs text-[var(--page-text-muted)] mb-3">Soft baked pumpkin treats</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <p class="text-xl font-medium text-[var(--primary)]">$13.99</p>
+                                <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105">
+                                    <i class="fas fa-plus mr-1"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="assets/Beef Bully Sticks.jpg" alt="Beef Bully Sticks" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <button class="absolute top-3 right-3 w-8 h-8 bg-white/80 dark:bg-gray-800/80 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 hover:text-red-500 transition-all opacity-0 group-hover:opacity-100">
+                                <i class="far fa-heart text-sm"></i>
+                            </button>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center gap-1 mb-1 text-[var(--accent)] text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-[var(--page-text-muted)] ml-1">(76)</span>
+                            </div>
+                            <h3 class="font-bold text-[var(--page-text)]">Beef Bully Sticks</h3>
+                            <p class="text-xs text-[var(--page-text-muted)] mb-3">Premium long-lasting chews</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <p class="text-xl font-medium text-[var(--primary)]">$22.99</p>
+                                <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105">
+                                    <i class="fas fa-plus mr-1"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="#" class="inline-flex items-center gap-2 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white font-bold px-10 py-4 rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                        Load More Products <i class="fas fa-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-[var(--section-alt-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-[var(--accent)]/10 rounded-[2rem] blur-2xl"></div>
+                        <div class="relative bg-white dark:bg-gray-800 rounded-3xl p-4 shadow-2xl border border-[var(--card-border)]">
+                            <img src="assets/treat box" alt="Mega Treat Box" class="w-full h-80 object-cover rounded-2xl">
+                            <div class="absolute -top-4 -right-4 bg-[var(--accent)] rounded-full w-20 h-20 flex items-center justify-center shadow-xl animate-pulse">
+                                <div class="text-center text-white">
+                                    <p class="text-xs font-bold">SAVE</p>
+                                    <p class="text-2xl font-medium -mt-1">$20</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-star mr-2"></i>Featured Bundle</span>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] leading-tight">
+                            The Mega<br><span class="text-[var(--primary)]">Treat Box</span>
+                        </h2>
+                        <p class="text-base text-[var(--page-text-muted)] leading-relaxed">Our best-selling variety pack with 5 full-size bags — the ultimate gift for any good boy or girl. Includes Peanut Butter Biscuits, Sweet Potato Chews, Chicken Strips, Dental Bones, and Liver Bites.</p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-green-50 dark:bg-green-900/20 text-[var(--primary)] text-xs font-bold px-3 py-1.5 rounded-full border border-green-200 dark:border-green-800">5 Full-Size Bags</span>
+                            <span class="bg-green-50 dark:bg-green-900/20 text-[var(--primary)] text-xs font-bold px-3 py-1.5 rounded-full border border-green-200 dark:border-green-800">Free Shipping</span>
+                            <span class="bg-green-50 dark:bg-green-900/20 text-[var(--primary)] text-xs font-bold px-3 py-1.5 rounded-full border border-green-200 dark:border-green-800">Gift Ready</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <p class="text-3xl font-medium text-[var(--accent)]">$49.99</p>
+                            <p class="text-lg text-[var(--page-text-muted)] line-through">$69.99</p>
+                        </div>
+                        <div class="pt-2">
+                            <a href="#" class="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
+                                <i class="fas fa-gift"></i> Get The Bundle
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-[var(--card-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-8 rounded-2xl bg-[var(--section-alt-bg)] border border-[var(--card-border)] hover:shadow-lg transition-all">
+                        <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center text-[var(--primary)] text-3xl mx-auto mb-5">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">Free Shipping Over $50</h3>
+                        <p class="text-sm text-[var(--page-text-muted)]">All orders over $50 ship free within the continental US. Fast and eco-friendly delivery.</p>
+                    </div>
+                    <div class="text-center p-8 rounded-2xl bg-[var(--section-alt-bg)] border border-[var(--card-border)] hover:shadow-lg transition-all">
+                        <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center text-[var(--primary)] text-3xl mx-auto mb-5">
+                            <i class="fas fa-undo-alt"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">Happy Pup Guarantee</h3>
+                        <p class="text-sm text-[var(--page-text-muted)]">If your pup doesn't love it, we'll refund your order — no questions asked.</p>
+                    </div>
+                    <div class="text-center p-8 rounded-2xl bg-[var(--section-alt-bg)] border border-[var(--card-border)] hover:shadow-lg transition-all">
+                        <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center text-[var(--primary)] text-3xl mx-auto mb-5">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">Eco-Friendly Packaging</h3>
+                        <p class="text-sm text-[var(--page-text-muted)]">100% compostable bags and carbon-neutral shipping on every order.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-[var(--page-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="bg-gradient-to-r from-[var(--primary)] to-[var(--primary-hover)] rounded-3xl p-12 md:p-16 relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-10">
+                        <div class="absolute -top-20 -right-20 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+                        <div class="absolute -bottom-20 -left-20 w-60 h-60 bg-white rounded-full blur-3xl"></div>
+                    </div>
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <span class="text-white/70 text-sm uppercase tracking-[0.2em] font-bold"><i class="fas fa-paw mr-2"></i>Stay In Touch</span>
+                            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-tight mt-3 mb-4">
+                                Get 15% Off<br>Your First Order
+                            </h2>
+                            <p class="text-white/80 text-lg max-w-lg">Subscribe for exclusive deals, new product alerts, and training tips straight to your inbox.</p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 lg:justify-end w-full">
+                            <input type="email" placeholder="Enter your email" class="px-6 py-4 rounded-xl text-base outline-none w-full bg-white/15 backdrop-blur-sm border border-white/30 text-white placeholder-white/50 focus:bg-white/25 focus:border-white/50 transition-all">
+                            <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 whitespace-nowrap cursor-pointer border-none">
+                                <i class="fas fa-paper-plane mr-2"></i> Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+      (function () {
+        var html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark') {
+          html.classList.add('dark');
+        }
+        if (localStorage.getItem('dir') === 'rtl') {
+          html.dir = 'rtl';
+        }
+
+        var themeBarBtn = document.querySelector('#theme-bar [data-toggle="theme"]');
+        var dirBarBtn = document.querySelector('#theme-bar [data-toggle="dir"]');
+
+        if (themeBarBtn) {
+          themeBarBtn.onclick = function () {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+          };
+        }
+        if (dirBarBtn) {
+          dirBarBtn.onclick = function () {
+            var cur = html.dir || 'ltr';
+            html.dir = cur === 'rtl' ? 'ltr' : 'rtl';
+            localStorage.setItem('dir', html.dir);
+          };
+        }
+      })();
+    </script>
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

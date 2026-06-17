@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class' }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #355E3B;
+            --primary-hover: #2a4a2f;
+            --primary-light: #4ade80;
+            --accent: #F28C28;
+            --accent-hover: #d9771a;
+            --surface: #ffffff;
+            --surface-hover: #f3f4f6;
+            --surface-active: #e5e7eb;
+            --surface-muted: #f9fafb;
+            --text: #374151;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --border-muted: #f3f4f6;
+            --footer-bg: #ffffff;
+            --footer-text: #374151;
+            --footer-text-muted: #6b7280;
+            --page-bg: #f9fafb;
+            --page-text: #2D2A26;
+            --page-text-muted: #5C5852;
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+            --section-alt-bg: #F8F5EE;
+        }
+        .dark {
+            --primary: #4ade80;
+            --primary-hover: #22c55e;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --surface: #111111;
+            --surface-hover: #222222;
+            --surface-active: #2a2a2a;
+            --surface-muted: #000000;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border: #2a2a2a;
+            --border-muted: #1a1a1a;
+            --footer-bg: #000000;
+            --footer-text: #e5e7eb;
+            --footer-text-muted: #6b7280;
+            --page-bg: #000000;
+            --page-text: #e5e7eb;
+            --page-text-muted: #9ca3af;
+            --card-bg: #111111;
+            --card-border: #222222;
+            --section-alt-bg: #000000;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--page-text);
+            transition: background-color 0.3s, color 0.3s;
+            padding-top: 72px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+        [dir="rtl"] [class*="space-x-"] > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+        }
+        @keyframes footerShimmer {
+            0% { background-position: 0% 0; }
+            100% { background-position: 300% 0; }
+        }
+        #theme-bar button {
+            transition: all 0.2s;
+        }
+    </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="text-[var(--page-text)]">
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-4 pb-8">
+        <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70"></div>
+        <div class="relative z-10 w-full max-w-4xl px-4 py-4">
+            <div class="flex flex-col md:flex-row bg-[var(--card-bg)] border border-[var(--card-border)] shadow-2xl overflow-hidden rounded-2xl">
+                <div class="hidden md:block md:w-1/2 relative min-h-[560px] overflow-hidden">
+                    <img src="assets/signup.jpg" alt="Cute puppy" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                        <h2 class="text-2xl md:text-3xl font-medium text-white leading-tight">Join the<br><span class="text-[var(--accent)]">Paw Pantry</span> Pack</h2>
+                        <p class="text-white/80 text-sm mt-2 max-w-xs">Become part of our family and give your pup the nutrition they deserve.</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-paw text-[var(--primary)] text-3xl mb-3"></i>
+                        <h1 class="text-2xl font-medium text-[var(--page-text)]">Create Account</h1>
+                        <p class="text-sm text-[var(--page-text-muted)] mt-1">Join the pack! Create your account.</p>
+                    </div>
+
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-[var(--page-text)] mb-1.5">Full Name</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-[var(--page-text-muted)]"><i class="fas fa-user text-sm"></i></span>
+                                <input type="text" id="name" placeholder="John Doe" class="w-full pl-10 pr-4 py-3 border border-[var(--border)] bg-[var(--surface)] text-[var(--page-text)] placeholder-[var(--page-text-muted)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-[var(--page-text)] mb-1.5">Email</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-[var(--page-text-muted)]"><i class="fas fa-envelope text-sm"></i></span>
+                                <input type="email" id="email" placeholder="you@example.com" class="w-full pl-10 pr-4 py-3 border border-[var(--border)] bg-[var(--surface)] text-[var(--page-text)] placeholder-[var(--page-text-muted)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-[var(--page-text)] mb-1.5">Password</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-[var(--page-text-muted)]"><i class="fas fa-lock text-sm"></i></span>
+                                <input type="password" id="password" placeholder="••••••••" class="w-full pl-10 pr-4 py-3 border border-[var(--border)] bg-[var(--surface)] text-[var(--page-text)] placeholder-[var(--page-text-muted)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="confirm-password" class="block text-sm font-medium text-[var(--page-text)] mb-1.5">Confirm Password</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-[var(--page-text-muted)]"><i class="fas fa-lock text-sm"></i></span>
+                                <input type="password" id="confirm-password" placeholder="••••••••" class="w-full pl-10 pr-4 py-3 border border-[var(--border)] bg-[var(--surface)] text-[var(--page-text)] placeholder-[var(--page-text-muted)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition">
+                            </div>
+                        </div>
+                        <label class="flex items-start gap-2 text-sm text-[var(--page-text-muted)] cursor-pointer select-none">
+                            <input type="checkbox" class="accent-[var(--accent)] w-4 h-4 mt-0.5 rounded border-[var(--border)]">
+                            <span>I agree to the <a href="#" class="text-[var(--accent)] hover:text-[var(--accent-hover)] font-medium transition">Terms</a> &amp; <a href="#" class="text-[var(--accent)] hover:text-[var(--accent-hover)] font-medium transition">Privacy Policy</a></span>
+                        </label>
+                        <button type="submit" class="w-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-hover)] hover:from-[var(--accent-hover)] hover:to-[var(--accent)] text-white font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">Create Account</button>
+                    </form>
+
+                    <div class="relative my-5">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-[var(--border)]"></div>
+                        </div>
+                        <div class="relative flex justify-center text-xs">
+                            <span class="bg-[var(--card-bg)] text-[var(--page-text-muted)] px-3">Or sign up with</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="flex items-center justify-center gap-2 px-4 py-3 border border-[var(--border)] rounded-lg text-[var(--page-text)] hover:bg-[var(--surface-hover)] hover:border-[var(--accent)] transition-all duration-200 group">
+                            <i class="fab fa-google text-lg text-red-500"></i>
+                            <span class="text-sm font-medium hidden sm:inline">Google</span>
+                        </button>
+                        <button class="flex items-center justify-center gap-2 px-4 py-3 border border-[var(--border)] rounded-lg text-[var(--page-text)] hover:bg-[var(--surface-hover)] hover:border-[var(--accent)] transition-all duration-200 group">
+                            <i class="fab fa-facebook text-lg text-blue-600"></i>
+                            <span class="text-sm font-medium hidden sm:inline">Facebook</span>
+                        </button>
+                        <button class="flex items-center justify-center gap-2 px-4 py-3 border border-[var(--border)] rounded-lg text-[var(--page-text)] hover:bg-[var(--surface-hover)] hover:border-[var(--accent)] transition-all duration-200 group">
+                            <i class="fab fa-apple text-lg"></i>
+                            <span class="text-sm font-medium hidden sm:inline">Apple</span>
+                        </button>
+                    </div>
+
+                    <p class="text-center text-sm text-[var(--page-text-muted)] mt-5">
+                        Already have an account?
+                        <a href="login.html" class="text-[var(--accent)] hover:text-[var(--accent-hover)] font-medium transition">Log in</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+      (function () {
+        var html = document.documentElement;
+        if (localStorage.getItem('theme') === 'dark') {
+          html.classList.add('dark');
+        }
+        if (localStorage.getItem('dir') === 'rtl') {
+          html.dir = 'rtl';
+        }
+      })();
+    </script>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

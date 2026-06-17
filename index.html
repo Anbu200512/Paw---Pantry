@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paw Pantry - Premium Organic Pet Treats</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class' }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #355E3B;
+            --primary-hover: #2a4a2f;
+            --accent: #F28C28;
+            --accent-hover: #d9771a;
+            --surface: #ffffff;
+            --surface-hover: #f3f4f6;
+            --surface-active: #e5e7eb;
+            --surface-muted: #f9fafb;
+            --text: #374151;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --border-muted: #f3f4f6;
+            --footer-bg: #ffffff;
+            --footer-text: #374151;
+            --footer-text-muted: #6b7280;
+            --page-bg: #f9fafb;
+            --page-text: #2D2A26;
+            --page-text-muted: #5C5852;
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+            --section-alt-bg: #F8F5EE;
+        }
+        .dark {
+            --primary: #4ade80;
+            --primary-hover: #22c55e;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --surface: #111111;
+            --surface-hover: #222222;
+            --surface-active: #2a2a2a;
+            --surface-muted: #000000;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border: #2a2a2a;
+            --border-muted: #1a1a1a;
+            --footer-bg: #000000;
+            --footer-text: #e5e7eb;
+            --footer-text-muted: #6b7280;
+            --page-bg: #000000;
+            --page-text: #e5e7eb;
+            --page-text-muted: #9ca3af;
+            --card-bg: #111111;
+            --card-border: #222222;
+            --section-alt-bg: #000000;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--page-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+        [dir="rtl"] [class*="space-x-"] > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+        }
+        @keyframes footerShimmer {
+            0% { background-position: 0% 0; }
+            100% { background-position: 300% 0; }
+        }
+        #theme-bar button {
+            transition: all 0.2s;
+        }
+    </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="text-[var(--page-text)]">
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="relative bg-cover bg-center bg-no-repeat flex items-center overflow-hidden min-h-[600px] lg:min-h-[600px]" style="background-image: url('assets/doghero.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10 py-8 pb-20 lg:pb-8 w-full">
+            <div class="lg:col-span-6 space-y-5 text-center lg:text-left">
+                <span class="inline-block bg-white/15 text-white text-xs font-bold uppercase tracking-[0.2em] px-5 py-2.5 rounded-full backdrop-blur-sm border border-white/20">
+                    <i class="fas fa-paw mr-2"></i>100% Organic & Natural
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-medium text-white leading-[1.1]">
+                    Premium Organic Treats<br><span class="text-[var(--accent)]">Your Pup Will Love</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-white/80 leading-relaxed max-w-2xl lg:mx-0 mx-auto">
+                    Handcrafted with love from the finest natural ingredients. No fillers, no artificial preservatives — just pure, wholesome goodness your furry best friend deserves.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                    <a href="#" class="inline-block bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold px-8 py-3.5 rounded-xl shadow-2xl hover:shadow-[var(--accent)]/30 hover:scale-[1.03] transition-all duration-300 text-center">
+                        <i class="fas fa-shopping-cart mr-2"></i>Shop Now
+                    </a>
+                    <a href="#" class="inline-block text-white font-semibold px-8 py-3.5 rounded-xl border-2 border-white/40 hover:bg-white/10 hover:border-white/70 transition-all duration-300 text-center backdrop-blur-sm">
+                        <i class="fas fa-play-circle mr-2"></i>Learn More
+                    </a>
+                </div>
+                <div class="flex items-center gap-6 justify-center lg:justify-start">
+                    <div class="flex -space-x-3">
+                        <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="assets/photo-1518717758536-85ae29035b6d.jpg" alt="">
+                        <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="assets/photo-1568572933382-74d440642117.jpg" alt="">
+                        <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="assets/photo-1494949649109-ecfc3b8c35df.jpg" alt="">
+                    </div>
+                    <span class="text-white/90 text-sm font-medium"><span class="text-white font-bold">10K+</span> Happy Pups</span>
+                </div>
+            </div>
+            <div class="lg:col-span-6 hidden lg:flex justify-center">
+                <div class="relative w-full max-w-lg">
+                    <div class="absolute inset-0 bg-gradient-to-b from-[var(--accent)]/20 to-[var(--primary)]/20 blur-3xl rounded-full -z-10 animate-pulse"></div>
+                    <div class="relative bg-white/10 backdrop-blur-md rounded-3xl p-4 border border-white/20 shadow-2xl">
+                        <img src="assets/groupdogs.jpg" alt="Happy Dogs" class="w-full h-80 object-cover rounded-2xl">
+                        <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl">
+                            <p class="text-[var(--primary)] font-bold text-lg"><i class="fas fa-check-circle text-green-500 mr-1"></i> Vet Approved</p>
+                        </div>
+                        <div class="absolute -top-4 -right-4 bg-[var(--accent)] rounded-full w-16 h-16 flex items-center justify-center shadow-xl">
+                            <i class="fas fa-paw text-white text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white/60 text-2xl"></i>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[var(--card-bg)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-leaf mr-2"></i>Why Choose Us</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                    Crafted With Love,<br>Rooted In Nature
+                </h2>
+                <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                    <div class="p-8 text-center flex flex-col items-center">
+                        <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center text-[var(--primary)] text-3xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--page-text)] mb-3">100% Organic</h3>
+                        <p class="text-sm text-[var(--page-text-muted)] leading-relaxed mb-4">All ingredients are certified organic, sourced from trusted farms that practice sustainable agriculture.</p>
+                        <a href="#" class="text-xs font-bold text-[var(--accent)] tracking-wider uppercase hover:underline mt-auto">Explore <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <img src="assets/photo-1540420773420-3366772f4999.jpg" alt="Organic ingredients" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                    <div class="p-8 text-center flex flex-col items-center">
+                        <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center text-[var(--primary)] text-3xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-wheat-awn"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--page-text)] mb-3">Grain-Free</h3>
+                        <p class="text-sm text-[var(--page-text-muted)] leading-relaxed mb-4">Perfect for pups with sensitive stomachs. Our grain-free recipes use wholesome alternatives like sweet potato.</p>
+                        <a href="#" class="text-xs font-bold text-[var(--accent)] tracking-wider uppercase hover:underline mt-auto">Explore <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <img src="assets/photo-1557844352-761f2565b576.jpg" alt="Grain free treats" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                    <div class="p-8 text-center flex flex-col items-center">
+                        <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center text-[var(--primary)] text-3xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--page-text)] mb-3">Vet Approved</h3>
+                        <p class="text-sm text-[var(--page-text-muted)] leading-relaxed mb-4">Formulated with veterinary nutritionists to ensure every treat supports your dog's overall health and wellness.</p>
+                        <a href="#" class="text-xs font-bold text-[var(--accent)] tracking-wider uppercase hover:underline mt-auto">Explore <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <img src="assets/photo-1588776814546-1ffcf47267a5.jpg" alt="Vet approved" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                    <div class="p-8 text-center flex flex-col items-center">
+                        <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center text-[var(--primary)] text-3xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--page-text)] mb-3">Eco-Friendly</h3>
+                        <p class="text-sm text-[var(--page-text-muted)] leading-relaxed mb-4">100% compostable packaging and carbon-neutral delivery. Good for your pup and good for the planet.</p>
+                        <a href="#" class="text-xs font-bold text-[var(--accent)] tracking-wider uppercase hover:underline mt-auto">Explore <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <img src="assets/photo-1441974231531-c6227db76b6e.jpg" alt="Eco friendly" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[var(--page-bg)] border-t border-[var(--card-border)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-map-signs mr-2"></i>Farm To Bowl</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                    The Journey Of<br><span class="text-[var(--primary)]">Every Treat</span>
+                </h2>
+                <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="relative group overflow-hidden rounded-3xl min-h-[420px] shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <img src="assets/photo-1500382017468-9049fed747ef.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                    <div class="absolute top-6 left-6 w-14 h-14 bg-[var(--accent)] rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <span class="text-white/70 text-xs font-bold uppercase tracking-wider">Step 01</span>
+                        <h3 class="text-2xl font-bold text-white mt-2 mb-2">Sourced From Farms</h3>
+                        <p class="text-white/80 text-sm leading-relaxed">We partner with regenerative farms that prioritize soil health, biodiversity, and ethical growing practices. Every ingredient is traceable from seed to harvest.</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-3xl min-h-[420px] shadow-lg hover:shadow-2xl transition-all duration-500 md:translate-y-8">
+                    <img src="assets/photo-1590947132387-155cc02f3212.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                    <div class="absolute top-6 left-6 w-14 h-14 bg-[var(--primary)] rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
+                        <i class="fas fa-kitchen-set"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <span class="text-white/70 text-xs font-bold uppercase tracking-wider">Step 02</span>
+                        <h3 class="text-2xl font-bold text-white mt-2 mb-2">Small Batch Crafted</h3>
+                        <p class="text-white/80 text-sm leading-relaxed">Every recipe is made in small batches in our own kitchen. No assembly lines, no mass production — just careful, handcrafted quality you can taste.</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-3xl min-h-[420px] shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <img src="assets/Courier worker delivering a parcel.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                    <div class="absolute top-6 left-6 w-14 h-14 bg-[var(--accent)] rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
+                        <i class="fas fa-dog"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <span class="text-white/70 text-xs font-bold uppercase tracking-wider">Step 03</span>
+                        <h3 class="text-2xl font-bold text-white mt-2 mb-2">Delivered To You</h3>
+                        <p class="text-white/80 text-sm leading-relaxed">Fresh from our kitchen to your doorstep in eco-friendly packaging. No warehouses, no middlemen — just pure goodness for your furry best friend.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[var(--section-alt-bg)] border-t border-[var(--card-border)]">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+            <div class="lg:col-span-6 space-y-7 order-2 lg:order-1">
+                <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-heart mr-2"></i>Our Story</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] leading-tight">
+                    From Our Kitchen To<br><span class="text-[var(--primary)]">Their Bowl</span>
+                </h2>
+                <p class="text-base text-[var(--page-text-muted)] leading-relaxed">
+                    Paw Pantry was born from a simple belief: our dogs deserve better. After discovering how many commercial treats are packed with fillers, artificial colors, and questionable ingredients, we set out to create something different.
+                </p>
+                <p class="text-base text-[var(--page-text-muted)] leading-relaxed">
+                    Every recipe is developed in our own kitchen, tested by our own pups, and crafted in small batches to ensure peak freshness and quality. We source only from regenerative farms and use nothing but real, whole food ingredients.
+                </p>
+                <div class="flex flex-wrap gap-6 pt-2">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-[var(--primary)] text-lg"></i>
+                        <span class="text-sm font-medium text-[var(--page-text)]">Small Batch Crafted</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-[var(--primary)] text-lg"></i>
+                        <span class="text-sm font-medium text-[var(--page-text)]">Kitchen Tested</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-[var(--primary)] text-lg"></i>
+                        <span class="text-sm font-medium text-[var(--page-text)]">Pup Approved</span>
+                    </div>
+                </div>
+                <div class="pt-4">
+                    <a href="#" class="inline-flex items-center gap-2 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        Discover Our Story <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="lg:col-span-6 hidden lg:flex justify-center order-1 lg:order-2">
+                <div class="relative w-full max-w-sm lg:max-w-lg">
+                    <div class="absolute inset-0 bg-[var(--accent)]/20 rounded-[2rem] transform rotate-3 -z-10"></div>
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-[var(--primary)]/10 rounded-full blur-xl -z-10"></div>
+                    <img src="assets/photo-1556909114-f6e7ad7d3136.jpg" 
+                         alt="Baking treats in our kitchen" 
+                         class="w-full h-auto max-h-64 lg:max-h-none object-cover rounded-[2rem] shadow-2xl border-4 border-white transform hover:-rotate-1 transition-transform duration-500" />
+                    <div class="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-xl flex items-center gap-3">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/40 rounded-full flex items-center justify-center text-[var(--primary)] text-xl">
+                            <i class="fas fa-kitchen-set"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-[var(--page-text-muted)]">Made In</p>
+                            <p class="font-bold text-sm text-[var(--page-text)]">Our Own Kitchen</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[var(--section-alt-bg)] border-t border-[var(--card-border)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-paw mr-2"></i>How It Works</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                    Three Simple Steps<br>To A Happier Pup
+                </h2>
+                <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="text-center group relative overflow-hidden rounded-2xl p-6">
+                    <img src="assets/photo-1472851294608-062f824d29cc.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-500">
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-[var(--primary)] rounded-2xl flex items-center justify-center text-white text-3xl mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 -right-2 w-8 h-8 bg-[var(--accent)] text-white text-sm font-bold rounded-full flex items-center justify-center">1</span>
+                            <h3 class="text-2xl font-bold text-[var(--page-text)] mb-3">Choose Your Treats</h3>
+                        </div>
+                        <p class="text-[var(--page-text-muted)] leading-relaxed max-w-xs mx-auto">Browse our collection of organic, grain-free treats and pick the flavors your pup will love most.</p>
+                    </div>
+                </div>
+                <div class="text-center group relative overflow-hidden rounded-2xl p-6">
+                    <img src="assets/photo-1482049016688-2d3e1b311543.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-500">
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-[var(--primary)] rounded-2xl flex items-center justify-center text-white text-3xl mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+                            <i class="fas fa-kitchen-set"></i>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 -right-2 w-8 h-8 bg-[var(--accent)] text-white text-sm font-bold rounded-full flex items-center justify-center">2</span>
+                            <h3 class="text-2xl font-bold text-[var(--page-text)] mb-3">We Craft Fresh</h3>
+                        </div>
+                        <p class="text-[var(--page-text-muted)] leading-relaxed max-w-xs mx-auto">Each order is made in small batches using only the finest natural ingredients sourced from trusted farms.</p>
+                    </div>
+                </div>
+                <div class="text-center group relative overflow-hidden rounded-2xl p-6">
+                    <img src="assets/photo-1568572933382-74d440642117.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-500">
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-[var(--primary)] rounded-2xl flex items-center justify-center text-white text-3xl mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+                            <i class="fas fa-dog"></i>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -top-2 -right-2 w-8 h-8 bg-[var(--accent)] text-white text-sm font-bold rounded-full flex items-center justify-center">3</span>
+                            <h3 class="text-2xl font-bold text-[var(--page-text)] mb-3">Your Pup Enjoys</h3>
+                        </div>
+                        <p class="text-[var(--page-text-muted)] leading-relaxed max-w-xs mx-auto">Watch their tail wag with every bite. Happy dog, happy you — it's that simple.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="shop.html" class="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
+                    Get Started <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[var(--card-bg)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-star mr-2"></i>Best Sellers</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                    Treats Your Pup Will<br>Beg For
+                </h2>
+                <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col">
+                    <div class="relative overflow-hidden h-48 sm:h-56 lg:h-64">
+                        <img src="assets/Peanut Butter Bites.jpg" alt="Peanut Butter Bites" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-[var(--accent)] text-white text-xs font-bold px-3 py-1 rounded-full">Best Seller</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-5 sm:p-6 flex flex-col flex-1">
+                        <div>
+                            <h3 class="text-base sm:text-lg font-bold text-[var(--page-text)]">Peanut Butter Bites</h3>
+                            <p class="text-xs sm:text-sm text-[var(--page-text-muted)] mt-1">Crunchy, protein-packed treats</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-3 gap-2">
+                            <span class="text-lg sm:text-xl lg:text-2xl font-medium text-[var(--primary)]">$12.99</span>
+                            <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-xs font-bold px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 lg:py-2.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg">
+                                <i class="fas fa-cart-plus mr-1"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col">
+                    <div class="relative overflow-hidden h-48 sm:h-56 lg:h-64">
+                        <img src="assets/Sweet Potato Chews.jpg" alt="Sweet Potato Chews" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-5 sm:p-6 flex flex-col flex-1">
+                        <div>
+                            <h3 class="text-base sm:text-lg font-bold text-[var(--page-text)]">Sweet Potato Chews</h3>
+                            <p class="text-xs sm:text-sm text-[var(--page-text-muted)] mt-1">Single-ingredient, grain-free</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-3 gap-2">
+                            <span class="text-lg sm:text-xl lg:text-2xl font-medium text-[var(--primary)]">$9.99</span>
+                            <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-xs font-bold px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 lg:py-2.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg">
+                                <i class="fas fa-cart-plus mr-1"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col">
+                    <div class="relative overflow-hidden h-48 sm:h-56 lg:h-64">
+                        <img src="assets/photo-1587593810167-a84920ea0781.jpg" alt="Chicken Jerky Strips" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-5 sm:p-6 flex flex-col flex-1">
+                        <div>
+                            <h3 class="text-base sm:text-lg font-bold text-[var(--page-text)]">Chicken Jerky Strips</h3>
+                            <p class="text-xs sm:text-sm text-[var(--page-text-muted)] mt-1">High-protein, slow-baked</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-3 gap-2">
+                            <span class="text-lg sm:text-xl lg:text-2xl font-medium text-[var(--primary)]">$14.99</span>
+                            <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-xs font-bold px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 lg:py-2.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg">
+                                <i class="fas fa-cart-plus mr-1"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col">
+                    <div class="relative overflow-hidden h-48 sm:h-56 lg:h-64">
+                        <img src="assets/photo-1606787366850-de6330128bfc.jpg" alt="Apple & Cinnamon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-5 sm:p-6 flex flex-col flex-1">
+                        <div>
+                            <h3 class="text-base sm:text-lg font-bold text-[var(--page-text)]">Apple & Cinnamon</h3>
+                            <p class="text-xs sm:text-sm text-[var(--page-text-muted)] mt-1">Fruity, antioxidant-rich</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-3 gap-2">
+                            <span class="text-lg sm:text-xl lg:text-2xl font-medium text-[var(--primary)]">$11.99</span>
+                            <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-xs font-bold px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 lg:py-2.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg">
+                                <i class="fas fa-cart-plus mr-1"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[var(--section-alt-bg)] border-t border-[var(--card-border)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-camera mr-2"></i>Happy Pups Gallery</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                    Our Furry Friends<br><span class="text-[var(--primary)]">Enjoying Their Treats</span>
+                </h2>
+                <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+            </div>
+            <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+                <div class="group relative overflow-hidden rounded-2xl break-inside-avoid cursor-pointer">
+                    <img src="assets/photo-1548199973-03cce0bbc87b.jpg" alt="Dogs playing together" class="w-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl break-inside-avoid cursor-pointer">
+                    <img src="assets/photo-1552053831-71594a27632d.jpg" alt="Dog enjoying treat" class="w-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl break-inside-avoid cursor-pointer">
+                    <img src="assets/photo-1534361960057-19889db9621e.jpg" alt="Dog running" class="w-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl break-inside-avoid cursor-pointer">
+                    <img src="assets/photo-1601758228041-f3b2795255f1.jpg" alt="Dog outdoors playing" class="w-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl break-inside-avoid cursor-pointer">
+                    <img src="assets/photo-1518717758536-85ae29035b6d.jpg" alt="Happy dog playing" class="w-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl break-inside-avoid cursor-pointer">
+                    <img src="assets/photo-1568572933382-74d440642117.jpg" alt="Puppy enjoying" class="w-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl break-inside-avoid cursor-pointer">
+                    <img src="assets/login.jpg" alt="Golden retriever playing" class="w-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl break-inside-avoid cursor-pointer">
+                    <img src="assets/photo-1586671267731-da2cf3ceeb80.jpg" alt="Dog with treats" class="w-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[var(--section-alt-bg)] border-t border-[var(--card-border)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-quote-left mr-2"></i>Testimonials</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                    What Pet Parents Say
+                </h2>
+                <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-[var(--card-bg)] p-8 rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
+                    <p class="text-[var(--page-text-muted)] leading-relaxed italic">"My picky eater absolutely devours these! I love that there are no weird ingredients I can't pronounce. Finally, a treat I feel good about giving."</p>
+                    <div class="flex items-center gap-4 mt-auto pt-6">
+                        <img src="assets/photo-1594824476967-48c8b964273f.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <p class="font-bold text-[var(--page-text)] text-sm">Sarah M.</p>
+                            <p class="text-xs text-[var(--page-text-muted)]">Labrador Mom</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[var(--card-bg)] p-8 rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
+                    <p class="text-[var(--page-text-muted)] leading-relaxed italic">"The Sweet Potato Chews saved us during teething! Our golden retriever puppy can't get enough. Fast shipping and beautiful eco-friendly packaging too."</p>
+                    <div class="flex items-center gap-4 mt-auto pt-6">
+                        <img src="assets/photo-1612349317150-e413f6a5b16d.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <p class="font-bold text-[var(--page-text)] text-sm">James K.</p>
+                            <p class="text-xs text-[var(--page-text-muted)]">Golden Retriever Dad</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[var(--card-bg)] p-8 rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
+                    <p class="text-[var(--page-text-muted)] leading-relaxed italic">"My two rescues have sensitive stomachs and these are the only treats that don't upset their digestion. The grain-free option is a game changer!"</p>
+                    <div class="flex items-center gap-4 mt-auto pt-6">
+                        <img src="assets/photo-1559839734-2b71ea197ec2.jpg" alt="" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <p class="font-bold text-[var(--page-text)] text-sm">Emily R.</p>
+                            <p class="text-xs text-[var(--page-text-muted)]">Rescue Advocate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[var(--card-bg)] border-t border-[var(--card-border)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-shield-hart mr-2"></i>Trusted By</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                    Recommended By Pet<br>Experts Nationwide
+                </h2>
+                <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                <div class="flex flex-col items-center gap-3 p-8 rounded-2xl bg-[var(--section-alt-bg)] border border-[var(--card-border)] group hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+                    <img src="assets/photo-1584982751601-97dcc096659c.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-5">
+                    <div class="relative z-10 flex flex-col items-center gap-3">
+                        <i class="fas fa-star-of-life text-4xl text-[var(--primary)]"></i>
+                        <span class="text-sm font-bold text-[var(--page-text)] text-center">Veterinarian<br>Approved</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center gap-3 p-8 rounded-2xl bg-[var(--section-alt-bg)] border border-[var(--card-border)] group hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+                    <img src="assets/photo-1500382017468-9049fed747ef.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-5">
+                    <div class="relative z-10 flex flex-col items-center gap-3">
+                        <i class="fas fa-leaf text-4xl text-[var(--primary)]"></i>
+                        <span class="text-sm font-bold text-[var(--page-text)] text-center">USDA<br>Organic</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center gap-3 p-8 rounded-2xl bg-[var(--section-alt-bg)] border border-[var(--card-border)] group hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+                    <img src="assets/photo-1576086213369-97a306d36557.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-5">
+                    <div class="relative z-10 flex flex-col items-center gap-3">
+                        <i class="fas fa-flask text-4xl text-[var(--primary)]"></i>
+                        <span class="text-sm font-bold text-[var(--page-text)] text-center">Lab<br>Tested</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center gap-3 p-8 rounded-2xl bg-[var(--section-alt-bg)] border border-[var(--card-border)] group hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+                    <img src="assets/photo-1534723452862-4c874018d66d.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-5">
+                    <div class="relative z-10 flex flex-col items-center gap-3">
+                        <i class="fas fa-recycle text-4xl text-[var(--primary)]"></i>
+                        <span class="text-sm font-bold text-[var(--page-text)] text-center">Eco-Certified<br>Packaging</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-14">
+                <p class="text-[var(--page-text-muted)] text-sm max-w-2xl mx-auto">
+                    <i class="fas fa-check-circle text-[var(--primary)] mr-1"></i>
+                    Paw Pantry meets the highest standards for pet food safety, nutrition, and sustainability.
+                    <a href="ingredient-sourcing.html" class="text-[var(--accent)] font-semibold hover:underline">Learn about our sourcing <i class="fas fa-arrow-right text-xs"></i></a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[var(--card-bg)] border-t border-[var(--card-border)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-carrot mr-2"></i>Ingredients</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 mb-6 leading-tight">
+                        What Goes Into<br><span class="text-[var(--primary)]">Every Treat</span>
+                    </h2>
+                    <p class="text-sm lg:text-base text-[var(--page-text-muted)] leading-relaxed mb-8">
+                        We believe in complete transparency. Every ingredient we use is thoughtfully sourced, nutrient-dense, and utterly delicious. No fillers. No by-products. Just real food your dog will love.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="flex items-center gap-3 bg-[var(--section-alt-bg)] p-3 sm:p-4 rounded-xl border border-[var(--card-border)]">
+                            <img src="assets/Oatmeal, oat flakes, rolled oats, a Food & Drink Photo by The baking man.jpg" alt="" class="w-10 sm:w-12 h-10 sm:h-12 rounded-lg object-cover shrink-0">
+                            <div>
+                                <h4 class="text-xs sm:text-sm font-bold text-[var(--page-text)]">Organic Oats</h4>
+                                <p class="text-[11px] sm:text-xs text-[var(--page-text-muted)]">Rich in fiber</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-[var(--section-alt-bg)] p-3 sm:p-4 rounded-xl border border-[var(--card-border)]">
+                            <img src="assets/Peanut Butter Bites.jpg" alt="" class="w-10 sm:w-12 h-10 sm:h-12 rounded-lg object-cover shrink-0">
+                            <div>
+                                <h4 class="text-xs sm:text-sm font-bold text-[var(--page-text)]">Real Peanut Butter</h4>
+                                <p class="text-[11px] sm:text-xs text-[var(--page-text-muted)]">Protein-packed</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-[var(--section-alt-bg)] p-3 sm:p-4 rounded-xl border border-[var(--card-border)]">
+                            <img src="assets/Sweet Potato Chews.jpg" alt="" class="w-10 sm:w-12 h-10 sm:h-12 rounded-lg object-cover shrink-0">
+                            <div>
+                                <h4 class="text-xs sm:text-sm font-bold text-[var(--page-text)]">Sweet Potato</h4>
+                                <p class="text-[11px] sm:text-xs text-[var(--page-text-muted)]">Vitamin-rich</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-[var(--section-alt-bg)] p-3 sm:p-4 rounded-xl border border-[var(--card-border)]">
+                            <img src="assets/photo-1604503468506-a8da13d82791.jpg" alt="" class="w-10 sm:w-12 h-10 sm:h-12 rounded-lg object-cover shrink-0">
+                            <div>
+                                <h4 class="text-xs sm:text-sm font-bold text-[var(--page-text)]">Free-Range Chicken</h4>
+                                <p class="text-[11px] sm:text-xs text-[var(--page-text-muted)]">Lean protein</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-[var(--accent)]/10 rounded-[3rem] blur-2xl -z-10"></div>
+                    <img src="assets/photo-1558961363-fa8fdf82db35.jpg" alt="Fresh ingredients" class="hidden lg:block w-full max-h-96 h-auto object-cover rounded-[2rem] shadow-2xl border-4 border-white">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[var(--primary)] dark:bg-gray-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 dark:opacity-20">
+            <div class="absolute top-0 right-0 w-72 h-72 bg-white rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-x-1/3 translate-y-1/3"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[var(--accent)] rounded-full blur-3xl opacity-50 dark:opacity-30"></div>
+        </div>
+        <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22white%22><path d=%22M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z%22/></svg>'); background-size: 40px 40px;"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <span class="inline-block bg-white/10 text-white text-xs font-bold uppercase tracking-[0.2em] px-5 py-2.5 rounded-full backdrop-blur-sm border border-white/20 mb-6 dark:bg-black/20">
+                <i class="fas fa-paw mr-2"></i>Stay Connected
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mb-6 drop-shadow-lg">
+                Join The Paw Pantry Pack
+            </h2>
+            <p class="text-white/80 text-lg mb-10 max-w-2xl mx-auto drop-shadow">
+                Subscribe to get <strong class="text-[var(--accent)] dark:text-yellow-300">15% off</strong> your first order, plus exclusive recipes, training tips, and new product alerts straight to your inbox.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <div class="relative flex-1">
+                    <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-white/40 dark:text-white/50"></i>
+                    <input type="email" placeholder="Enter your email address" class="w-full pl-11 pr-6 py-4 rounded-xl bg-white/10 dark:bg-black/20 border border-white/30 dark:border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-all backdrop-blur-sm">
+                </div>
+                <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-95 transition-all duration-300 whitespace-nowrap flex items-center justify-center gap-2 dark:shadow-black/30">
+                    <i class="fas fa-paper-plane"></i> Subscribe
+                </button>
+            </form>
+            <div class="flex items-center justify-center gap-2 mt-6">
+                <i class="fas fa-shield-alt text-white/40 dark:text-white/50 text-xs"></i>
+                <p class="text-white/50 dark:text-white/60 text-xs">No spam, ever. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+      (function () {
+        var html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark') {
+          html.classList.add('dark');
+        }
+        if (localStorage.getItem('dir') === 'rtl') {
+          html.dir = 'rtl';
+        }
+
+        var themeBarBtn = document.querySelector('#theme-bar [data-toggle="theme"]');
+        var dirBarBtn = document.querySelector('#theme-bar [data-toggle="dir"]');
+
+        if (themeBarBtn) {
+          themeBarBtn.onclick = function () {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+          };
+        }
+        if (dirBarBtn) {
+          dirBarBtn.onclick = function () {
+            var cur = html.dir || 'ltr';
+            html.dir = cur === 'rtl' ? 'ltr' : 'rtl';
+            localStorage.setItem('dir', html.dir);
+          };
+        }
+      })();
+    </script>
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

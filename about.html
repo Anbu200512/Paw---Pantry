@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class' }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #355E3B;
+            --primary-hover: #2a4a2f;
+            --accent: #F28C28;
+            --accent-hover: #d9771a;
+            --surface: #ffffff;
+            --surface-hover: #f3f4f6;
+            --surface-active: #e5e7eb;
+            --surface-muted: #f9fafb;
+            --text: #374151;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --border-muted: #f3f4f6;
+            --footer-bg: #ffffff;
+            --footer-text: #374151;
+            --footer-text-muted: #6b7280;
+            --page-bg: #f9fafb;
+            --page-text: #2D2A26;
+            --page-text-muted: #5C5852;
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+            --section-alt-bg: #F8F5EE;
+        }
+        .dark {
+            --primary: #4ade80;
+            --primary-hover: #22c55e;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --surface: #111111;
+            --surface-hover: #222222;
+            --surface-active: #2a2a2a;
+            --surface-muted: #000000;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border: #2a2a2a;
+            --border-muted: #1a1a1a;
+            --footer-bg: #000000;
+            --footer-text: #e5e7eb;
+            --footer-text-muted: #6b7280;
+            --page-bg: #000000;
+            --page-text: #e5e7eb;
+            --page-text-muted: #9ca3af;
+            --card-bg: #111111;
+            --card-border: #222222;
+            --section-alt-bg: #000000;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--page-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+        [dir="rtl"] [class*="space-x-"] > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+        }
+        @keyframes footerShimmer {
+            0% { background-position: 0% 0; }
+            100% { background-position: 300% 0; }
+        }
+        #theme-bar button {
+            transition: all 0.2s;
+        }
+    </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="text-[var(--page-text)]">
+
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+        <section class="relative h-[45vh] min-h-[320px] flex items-center justify-center overflow-hidden">
+            <img src="assets/about-hero.jpg" alt="Our Story" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="relative text-center text-white z-10 px-4">
+                <h1 class="text-5xl md:text-6xl font-medium mb-4">Our Story</h1>
+                <p class="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">From a simple idea to a movement — nourishing tails, one treat at a time.</p>
+            </div>
+        </section>
+
+        <section class="py-24 bg-[var(--card-bg)]">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-[var(--accent)] font-medium text-sm uppercase tracking-[0.2em]"><i class="fas fa-heart mr-2"></i>Our Story</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] leading-tight">
+                        Born In A Kitchen,<br><span class="text-[var(--primary)]">Raised With Love</span>
+                    </h2>
+                    <p class="text-base text-[var(--page-text-muted)] leading-relaxed">
+                        It all started in 2018 when our founder Sarah couldn't find a single treat on the shelf that she felt good about giving her rescue Golden Retriever, Bailey. Filled with fillers, artificial colors, and ingredients she couldn't pronounce — she decided to take matters into her own hands.
+                    </p>
+                    <p class="text-base text-[var(--page-text-muted)] leading-relaxed">
+                        What began as small batches in a home kitchen quickly became a neighborhood favorite. Friends, family, and eventually strangers started asking for "those homemade treats." Today, Paw Pantry is a team of passionate pet lovers dedicated to transforming the way we feed our four-legged family members.
+                    </p>
+                    <div class="flex items-center gap-4 pt-4">
+                        <div class="flex -space-x-3">
+                            <img class="w-12 h-12 rounded-full border-2 border-white object-cover" src="assets/photo-1518717758536-85ae29035b6d.jpg" alt="">
+                            <img class="w-12 h-12 rounded-full border-2 border-white object-cover" src="assets/photo-1568572933382-74d440642117.jpg" alt="">
+                            <img class="w-12 h-12 rounded-full border-2 border-white object-cover" src="assets/photo-1494949649109-ecfc3b8c35df.jpg" alt="">
+                        </div>
+                        <div>
+                            <p class="font-medium text-sm text-[var(--page-text)]">Founded for Dogs</p>
+                            <p class="text-xs text-[var(--page-text-muted)]">One rescue dog changed everything</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 flex justify-center">
+                    <div class="relative w-full max-w-lg">
+                        <div class="absolute inset-0 bg-[var(--accent)]/20 rounded-[2rem] transform rotate-3 -z-10"></div>
+                        <div class="absolute -top-6 -right-6 w-32 h-32 bg-[var(--primary)]/10 rounded-full blur-2xl -z-10"></div>
+                        <img src="assets/photo-1556909114-f6e7ad7d3136.jpg" 
+                             alt="Homemade baking" 
+                             class="w-full h-[500px] object-cover rounded-[2rem] shadow-2xl border-4 border-white dark:border-gray-800" />
+                        <div class="hidden md:flex absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-xl items-center gap-3">
+                            <div class="w-14 h-14 bg-green-100 dark:bg-green-900/40 rounded-full flex items-center justify-center text-[var(--primary)] text-2xl">
+                                <i class="fas fa-cookie-bite"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-[var(--page-text-muted)]">First Batch Ever</p>
+                                <p class="font-medium text-sm text-[var(--page-text)]">Made With Love in 2018</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-[var(--section-alt-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-[var(--accent)] font-medium text-sm uppercase tracking-[0.2em]"><i class="fas fa-star mr-2"></i>What We Stand For</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        Our Core<br><span class="text-[var(--primary)]">Values</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="group relative overflow-hidden rounded-2xl min-h-[380px] shadow-lg hover:shadow-2xl transition-all duration-500">
+                        <img src="assets/photo-1540420773420-3366772f4999.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10"></div>
+                        <div class="absolute top-6 left-6 w-14 h-14 bg-[var(--accent)] rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-7">
+                            <h3 class="text-xl font-medium text-white mb-2">Quality</h3>
+                            <p class="text-white/70 text-sm leading-relaxed">Only the finest natural ingredients. Every batch is vet-approved and rigorously tested.</p>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-2xl min-h-[380px] shadow-lg hover:shadow-2xl transition-all duration-500">
+                        <img src="assets/photo-1441974231531-c6227db76b6e.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10"></div>
+                        <div class="absolute top-6 left-6 w-14 h-14 bg-[var(--accent)] rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-7">
+                            <h3 class="text-xl font-medium text-white mb-2">Sustainability</h3>
+                            <p class="text-white/70 text-sm leading-relaxed">Eco-friendly packaging, carbon-neutral delivery, and ethical sourcing from day one.</p>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-2xl min-h-[380px] shadow-lg hover:shadow-2xl transition-all duration-500">
+                        <img src="assets/photo-1583511655857-d19b40a7a54e.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10"></div>
+                        <div class="absolute top-6 left-6 w-14 h-14 bg-[var(--accent)] rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-7">
+                            <h3 class="text-xl font-medium text-white mb-2">Community</h3>
+                            <p class="text-white/70 text-sm leading-relaxed">Every purchase helps support local shelters through our "One Bag, One Meal" program.</p>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-2xl min-h-[380px] shadow-lg hover:shadow-2xl transition-all duration-500">
+                        <img src="assets/photo-1588776814546-1ffcf47267a5.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10"></div>
+                        <div class="absolute top-6 left-6 w-14 h-14 bg-[var(--accent)] rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-7">
+                            <h3 class="text-xl font-medium text-white mb-2">Transparency</h3>
+                            <p class="text-white/70 text-sm leading-relaxed">Full ingredient sourcing reports and third-party lab results available for every recipe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative py-28 bg-cover bg-center bg-fixed overflow-hidden" style="background-image: url('assets/photo-1522202176988-66273c2fd55f.jpg');">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/85"></div>
+            <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-[var(--accent)] font-medium text-sm uppercase tracking-[0.2em]">By The Numbers</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mt-4 tracking-tight">
+                        Our Impact<br><span class="text-[var(--accent)]">So Far</span>
+                    </h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+                        <p class="text-4xl sm:text-5xl font-medium text-[var(--accent)]">50K+</p>
+                        <p class="text-white/60 text-sm uppercase tracking-wider mt-2">Pups Fed</p>
+                    </div>
+                    <div class="text-center p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+                        <p class="text-4xl sm:text-5xl font-medium text-[var(--accent)]">100K+</p>
+                        <p class="text-white/60 text-sm uppercase tracking-wider mt-2">Shelter Meals</p>
+                    </div>
+                    <div class="text-center p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+                        <p class="text-4xl sm:text-5xl font-medium text-[var(--accent)]">50+</p>
+                        <p class="text-white/60 text-sm uppercase tracking-wider mt-2">Farm Partners</p>
+                    </div>
+                    <div class="text-center p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+                        <p class="text-4xl sm:text-5xl font-medium text-[var(--accent)]">12K+</p>
+                        <p class="text-white/60 text-sm uppercase tracking-wider mt-2">5-Star Reviews</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-[var(--card-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-[var(--accent)] font-medium text-sm uppercase tracking-[0.2em]"><i class="fas fa-timeline mr-2"></i>Our Journey</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        How We<br><span class="text-[var(--primary)]">Grew</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="relative max-w-4xl mx-auto">
+                    <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-[var(--card-border)] hidden md:block"></div>
+                    <div class="space-y-12">
+                        <div class="relative md:pl-24">
+                            <div class="absolute left-6 top-1 w-5 h-5 bg-[var(--accent)] rounded-full border-4 border-[var(--card-bg)] shadow hidden md:block"></div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                <div class="relative overflow-hidden rounded-2xl h-48 shadow-lg">
+                                    <img src="assets/photo-1556909114-f6e7ad7d3136.jpg" alt="" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                    <div class="absolute bottom-3 left-4 text-white text-2xl font-medium">2018</div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-medium text-[var(--page-text)]">The Beginning</h3>
+                                    <p class="text-sm text-[var(--page-text-muted)] mt-2">Founded in a small kitchen with a rescued Golden Retriever named Bailey as our first taste-tester. Our first batch made just 50 treats.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative md:pl-24">
+                            <div class="absolute left-6 top-1 w-5 h-5 bg-[var(--accent)] rounded-full border-4 border-[var(--card-bg)] shadow hidden md:block"></div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center md:direction-rtl">
+                                <div class="md:order-2 relative overflow-hidden rounded-2xl h-48 shadow-lg">
+                                    <img src="assets/photo-1586528116311-ad8dd3c8310d.jpg" alt="" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                    <div class="absolute bottom-3 left-4 text-white text-2xl font-medium">2020</div>
+                                </div>
+                                <div class="md:order-1">
+                                    <h3 class="text-xl font-medium text-[var(--page-text)]">Going National</h3>
+                                    <p class="text-sm text-[var(--page-text-muted)] mt-2">Expanded nationwide shipping and partnered with 50+ independent pet stores. Our team grew from 2 to 15 passionate pet lovers.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative md:pl-24">
+                            <div class="absolute left-6 top-1 w-5 h-5 bg-[var(--accent)] rounded-full border-4 border-[var(--card-bg)] shadow hidden md:block"></div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                <div class="relative overflow-hidden rounded-2xl h-48 shadow-lg">
+                                    <img src="assets/shlter.jpg" alt="" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                    <div class="absolute bottom-3 left-4 text-white text-2xl font-medium">2023</div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-medium text-[var(--page-text)]">Shelter Program</h3>
+                                    <p class="text-sm text-[var(--page-text-muted)] mt-2">Launched "One Bag, One Meal" initiative — donating over 100K meals to shelters across the country. Became a certified B Corporation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative md:pl-24">
+                            <div class="absolute left-6 top-1 w-5 h-5 bg-[var(--accent)] rounded-full border-4 border-[var(--card-bg)] shadow hidden md:block"></div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center md:direction-rtl">
+                                <div class="md:order-2 relative overflow-hidden rounded-2xl h-48 shadow-lg">
+                                    <img src="assets/photo-1516734212186-a967f81ad0d7.jpg" alt="" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                    <div class="absolute bottom-3 left-4 text-white text-2xl font-medium">2025</div>
+                                </div>
+                                <div class="md:order-1">
+                                    <h3 class="text-xl font-medium text-[var(--page-text)]">1 Million Tails</h3>
+                                    <p class="text-sm text-[var(--page-text-muted)] mt-2">Celebrated our millionth happy pup and launched our first organic line. Now a team of 50+ dedicated to transforming pet nutrition.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-[var(--section-alt-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-[var(--accent)] font-medium text-sm uppercase tracking-[0.2em]"><i class="fas fa-users mr-2"></i>Meet The Team</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        The People Behind<br><span class="text-[var(--primary)]">The Pantry</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="group relative overflow-hidden rounded-3xl min-h-[480px] shadow-xl">
+                        <img src="assets/photo-1594824476967-48c8b964273f.jpg" alt="Sarah" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8">
+                            <div class="w-16 h-16 bg-[var(--accent)] rounded-2xl flex items-center justify-center text-white text-2xl mb-4">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h3 class="text-2xl font-medium text-white">Sarah Mitchell</h3>
+                            <p class="text-[var(--accent)] font-medium text-sm mb-3">CEO & Founder</p>
+                            <p class="text-white/70 text-sm leading-relaxed">A lifelong animal lover and nutrition advocate. Started Paw Pantry in her home kitchen with a rescued Golden Retriever by her side.</p>
+                            <div class="flex gap-3 mt-4">
+                                <a href="#" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"><i class="fab fa-linkedin-in text-sm"></i></a>
+                                <a href="#" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"><i class="fab fa-twitter text-sm"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-3xl min-h-[480px] shadow-xl md:translate-y-8">
+                        <img src="assets/photo-1612349317150-e413f6a5b16d.jpg" alt="James" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8">
+                            <div class="w-16 h-16 bg-[var(--primary)] rounded-2xl flex items-center justify-center text-white text-2xl mb-4">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <h3 class="text-2xl font-medium text-white">Dr. James Park</h3>
+                            <p class="text-[var(--accent)] font-medium text-sm mb-3">Chief Veterinary Officer</p>
+                            <p class="text-white/70 text-sm leading-relaxed">15+ years of clinical experience. Ensures every recipe meets the highest standards of canine nutrition and safety.</p>
+                            <div class="flex gap-3 mt-4">
+                                <a href="#" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"><i class="fab fa-linkedin-in text-sm"></i></a>
+                                <a href="#" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"><i class="fab fa-twitter text-sm"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-3xl min-h-[480px] shadow-xl">
+                        <img src="assets/photo-1559839734-2b71ea197ec2.jpg" alt="Emily" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8">
+                            <div class="w-16 h-16 bg-[var(--accent)] rounded-2xl flex items-center justify-center text-white text-2xl mb-4">
+                                <i class="fas fa-gears"></i>
+                            </div>
+                            <h3 class="text-2xl font-medium text-white">Emily Chen</h3>
+                            <p class="text-[var(--accent)] font-medium text-sm mb-3">Head of Operations</p>
+                            <p class="text-white/70 text-sm leading-relaxed">Keeps the pantry running smoothly — from sourcing ingredients to delivering joy at your doorstep.</p>
+                            <div class="flex gap-3 mt-4">
+                                <a href="#" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"><i class="fab fa-linkedin-in text-sm"></i></a>
+                                <a href="#" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"><i class="fab fa-twitter text-sm"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-14">
+                    <p class="text-[var(--page-text-muted)] mb-4">Want to join our growing team?</p>
+                    <a href="#" class="inline-flex items-center gap-2 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white font-medium px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-briefcase"></i> View Open Positions
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-[var(--page-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="bg-gradient-to-r from-[var(--primary)] to-[var(--primary-hover)] rounded-3xl p-12 md:p-16 relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-10">
+                        <div class="absolute -top-20 -right-20 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+                        <div class="absolute -bottom-20 -left-20 w-60 h-60 bg-white rounded-full blur-3xl"></div>
+                    </div>
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <span class="text-white/70 text-sm uppercase tracking-[0.2em] font-medium"><i class="fas fa-paw mr-2"></i>Join The Pack</span>
+                            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-tight mt-3 mb-4">
+                                Become Part Of<br>Our Family
+                            </h2>
+                            <p class="text-white/80 text-lg max-w-lg">
+                                Sign up for exclusive deals, new product launches, and expert tips from our veterinary team. Your pup will thank you!
+                            </p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 lg:justify-end w-full">
+                            <input type="email" placeholder="Enter your email" class="px-6 py-4 rounded-xl text-base outline-none w-full bg-white/15 backdrop-blur-sm border border-white/30 text-white placeholder-white/50 focus:bg-white/25 focus:border-white/50 transition-all">
+                            <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-medium px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 whitespace-nowrap cursor-pointer border-none">
+                                <i class="fas fa-paper-plane mr-2"></i> Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+      (function () {
+        var html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark') {
+          html.classList.add('dark');
+        }
+        if (localStorage.getItem('dir') === 'rtl') {
+          html.dir = 'rtl';
+        }
+
+        var themeBarBtn = document.querySelector('#theme-bar [data-toggle="theme"]');
+        var dirBarBtn = document.querySelector('#theme-bar [data-toggle="dir"]');
+
+        if (themeBarBtn) {
+          themeBarBtn.onclick = function () {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+          };
+        }
+        if (dirBarBtn) {
+          dirBarBtn.onclick = function () {
+            var cur = html.dir || 'ltr';
+            html.dir = cur === 'rtl' ? 'ltr' : 'rtl';
+            localStorage.setItem('dir', html.dir);
+          };
+        }
+      })();
+    </script>
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

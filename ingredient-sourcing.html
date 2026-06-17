@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class' }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #355E3B;
+            --primary-hover: #2a4a2f;
+            --accent: #F28C28;
+            --accent-hover: #d9771a;
+            --surface: #ffffff;
+            --surface-hover: #f3f4f6;
+            --surface-active: #e5e7eb;
+            --surface-muted: #f9fafb;
+            --text: #374151;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --border-muted: #f3f4f6;
+            --footer-bg: #ffffff;
+            --footer-text: #374151;
+            --footer-text-muted: #6b7280;
+            --page-bg: #f9fafb;
+            --page-text: #2D2A26;
+            --page-text-muted: #5C5852;
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+            --section-alt-bg: #F8F5EE;
+        }
+        .dark {
+            --primary: #4ade80;
+            --primary-hover: #22c55e;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --surface: #111111;
+            --surface-hover: #222222;
+            --surface-active: #2a2a2a;
+            --surface-muted: #000000;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border: #2a2a2a;
+            --border-muted: #1a1a1a;
+            --footer-bg: #000000;
+            --footer-text: #e5e7eb;
+            --footer-text-muted: #6b7280;
+            --page-bg: #000000;
+            --page-text: #e5e7eb;
+            --page-text-muted: #9ca3af;
+            --card-bg: #111111;
+            --card-border: #222222;
+            --section-alt-bg: #000000;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--page-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+        [dir="rtl"] [class*="space-x-"] > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+        }
+        @keyframes footerShimmer {
+            0% { background-position: 0% 0; }
+            100% { background-position: 300% 0; }
+        }
+        #theme-bar button {
+            transition: all 0.2s;
+        }
+    </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="text-[var(--page-text)]">
+
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+        <section class="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
+            <img src="assets/Ingredient.jpg" alt="Ingredient Sourcing" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/60"></div>
+            <div class="relative text-center text-white z-10 px-6">
+                <span class="inline-flex items-center gap-2 bg-white/15 text-white text-xs font-bold uppercase tracking-[0.2em] px-5 py-2.5 rounded-full backdrop-blur-sm border border-white/20 mb-6">
+                    <i class="fas fa-globe-americas"></i> From Farm to Bowl
+                </span>
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-medium text-white leading-[1.1] mb-4">
+                    Ingredient<br><span class="text-[var(--accent)]">Sourcing</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-6">We travel the globe to source the purest, highest-quality ingredients for your pup.</p>
+                <div class="flex flex-wrap justify-center gap-6 text-white/70 text-sm">
+                    <span><i class="fas fa-search text-[var(--accent)] mr-1"></i> 100% Traceable</span>
+                    <span><i class="fas fa-ban text-[var(--accent)] mr-1"></i> No Fillers Ever</span>
+                    <span><i class="fas fa-leaf text-[var(--accent)] mr-1"></i> Sustainable Farms</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-[var(--card-bg)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-map-marker-alt mr-2"></i>Global Partners</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        Our Sourcing<br><span class="text-[var(--primary)]">Locations</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                        <div class="relative overflow-hidden h-44">
+                            <img src="assets/USA Farm Chicken.jpg" alt="USA Farm Chicken" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            <span class="absolute top-3 left-3 bg-[var(--accent)] text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1"><i class="fas fa-flag-usa text-xs"></i> USA</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="w-11 h-11 bg-green-50 dark:bg-green-900/30 rounded-xl flex items-center justify-center text-[var(--primary)] text-lg mb-4">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--page-text)] mb-2">USA Farm Chicken</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">Free-range chicken from family farms in the Midwest, raised without antibiotics or hormones.</p>
+                            <a href="#" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm mt-auto group-hover:gap-2 transition-all">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                        <div class="relative overflow-hidden h-44">
+                            <img src="assets/New Zealand Lamb.jpg" alt="New Zealand Lamb" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            <span class="absolute top-3 left-3 bg-[var(--accent)] text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1"><i class="fas fa-globe text-xs"></i> NZ</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="w-11 h-11 bg-green-50 dark:bg-green-900/30 rounded-xl flex items-center justify-center text-[var(--primary)] text-lg mb-4">
+                                <i class="fas fa-horse"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--page-text)] mb-2">New Zealand Lamb</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">Grass-fed lamb from the pristine pastures of the South Island, free to roam year-round.</p>
+                            <a href="#" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm mt-auto group-hover:gap-2 transition-all">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                        <div class="relative overflow-hidden h-44">
+                            <img src="assets/Swedish Salmon.jpg" alt="Swedish Salmon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            <span class="absolute top-3 left-3 bg-[var(--accent)] text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1"><i class="fas fa-globe text-xs"></i> SE</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="w-11 h-11 bg-green-50 dark:bg-green-900/30 rounded-xl flex items-center justify-center text-[var(--primary)] text-lg mb-4">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--page-text)] mb-2">Swedish Salmon</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">Sustainable, cold-water salmon rich in Omega-3 fatty acids, harvested from Nordic waters.</p>
+                            <a href="#" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm mt-auto group-hover:gap-2 transition-all">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                        <div class="relative overflow-hidden h-44">
+                            <img src="assets/Organic Sweet Potatoes.jpg" alt="Organic Sweet Potatoes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            <span class="absolute top-3 left-3 bg-[var(--accent)] text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1"><i class="fas fa-flag-usa text-xs"></i> USA</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="w-11 h-11 bg-green-50 dark:bg-green-900/30 rounded-xl flex items-center justify-center text-[var(--primary)] text-lg mb-4">
+                                <i class="fas fa-carrot"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--page-text)] mb-2">Organic Sweet Potatoes</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">Certified organic sweet potatoes grown in nutrient-rich California soil with regenerative methods.</p>
+                            <a href="#" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm mt-auto group-hover:gap-2 transition-all">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                        <div class="relative overflow-hidden h-44">
+                            <img src="assets/Canadian Turkey.jpg" alt="Canadian Turkey" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            <span class="absolute top-3 left-3 bg-[var(--accent)] text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1"><i class="fas fa-globe text-xs"></i> CA</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="w-11 h-11 bg-green-50 dark:bg-green-900/30 rounded-xl flex items-center justify-center text-[var(--primary)] text-lg mb-4">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--page-text)] mb-2">Canadian Turkey</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">Free-range turkey from Quebec family farms, raised on vegetarian feed with no added growth hormones.</p>
+                            <a href="#" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm mt-auto group-hover:gap-2 transition-all">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                        <div class="relative overflow-hidden h-44">
+                            <img src="assets/Australian Beef.jpg" alt="Australian Beef" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            <span class="absolute top-3 left-3 bg-[var(--accent)] text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1"><i class="fas fa-globe text-xs"></i> AU</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="w-11 h-11 bg-green-50 dark:bg-green-900/30 rounded-xl flex items-center justify-center text-[var(--primary)] text-lg mb-4">
+                                <i class="fas fa-cow"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--page-text)] mb-2">Australian Beef</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">Grass-fed, free-range beef from the vast Outback pastures, known for its rich flavor and tenderness.</p>
+                            <a href="#" class="inline-flex items-center gap-1 text-[var(--accent)] font-bold text-sm mt-auto group-hover:gap-2 transition-all">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-[var(--section-alt-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-check-double mr-2"></i>Our Standards</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        Our Quality<br><span class="text-[var(--primary)]">Promise</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <img src="assets/photo-1583511655857-d19b40a7a54e.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-2xl flex items-center justify-center text-[var(--primary)] text-2xl mx-auto mb-5 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-ban"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">No Fillers</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">Zero corn, wheat, soy, or artificial bulking agents. Every ingredient serves a purpose.</p>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <img src="assets/photo-1534361960057-19889db9621e.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-blue-50 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-500 text-2xl mx-auto mb-5 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">No Preservatives</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">Natural preservation methods — tocopherols and rosemary extract — instead of chemicals.</p>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <img src="assets/photo-1552053831-71594a27632d.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-amber-50 dark:bg-amber-900/30 rounded-2xl flex items-center justify-center text-amber-500 text-2xl mx-auto mb-5 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">No Artificial Colors</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">Every treat gets its color from real ingredients — no dyes, no tricks, no exceptions.</p>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <img src="assets/photo-1494949649109-ecfc3b8c35df.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-2xl flex items-center justify-center text-[var(--primary)] text-2xl mx-auto mb-5 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-dna"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-[var(--page-text)] mb-2">No GMOs</h3>
+                            <p class="text-sm text-[var(--page-text-muted)] leading-relaxed">All ingredients are non-GMO verified, from our fruits and vegetables to our meats and grains.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-[var(--card-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+                    <div>
+                        <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-leaf mr-2"></i>Eco Commitment</span>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] leading-tight mt-4 mb-6">
+                            Commitment to<br><span class="text-[var(--primary)]">Sustainability</span>
+                        </h2>
+                        <p class="text-[var(--page-text-muted)] mb-8 leading-relaxed">Every sourcing decision we make considers both nutritional value and environmental impact. We believe you shouldn't have to choose between what's best for your dog and what's best for the planet.</p>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4 group">
+                                <div class="w-12 h-12 rounded-2xl bg-green-50 dark:bg-green-900/30 flex items-center justify-center text-[var(--primary)] text-xl shrink-0 mt-1 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-[var(--page-text)] mb-1">Regenerative Farming</h3>
+                                    <p class="text-sm text-[var(--page-text-muted)]">We partner with farms that use crop rotation, cover cropping, and no-till methods to enrich the soil and capture carbon.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 group">
+                                <div class="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 text-xl shrink-0 mt-1 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-[var(--page-text)] mb-1">Eco-Friendly Packaging</h3>
+                                    <p class="text-sm text-[var(--page-text-muted)]">All our bags are made from 100% PCR recycled materials and are fully recyclable through standard curbside programs.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 group">
+                                <div class="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center text-amber-500 text-xl shrink-0 mt-1 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-tree"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-[var(--page-text)] mb-1">Carbon Neutral Shipping</h3>
+                                    <p class="text-sm text-[var(--page-text-muted)]">We offset every shipment through verified carbon credit programs that fund reforestation and renewable energy projects.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-[var(--accent)]/10 rounded-[2rem] blur-2xl"></div>
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-[var(--card-border)]">
+                            <img src="assets/eco.jpg" alt="Sustainable sourcing" class="w-full h-96 object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                                <p class="text-white text-sm font-semibold flex items-center gap-2"><i class="fas fa-leaf text-[var(--accent)]"></i> Certified sustainable supply chain</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-[var(--section-alt-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-handshake mr-2"></i>Our Network</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
+                        Meet Our<br><span class="text-[var(--primary)]">Farm Partners</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="assets/Green Acres Farm.jpg" alt="Green Acres Farm" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-xl mb-2">
+                                    <i class="fas fa-tractor"></i>
+                                </div>
+                                <h3 class="text-lg font-bold">Green Acres Farm</h3>
+                                <p class="text-xs text-white/80">Iowa, USA</p>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <p class="text-sm text-[var(--page-text-muted)] italic leading-relaxed">"We've been farming this land for three generations. Every chicken raised here is treated with respect and fed only the best."</p>
+                            <div class="mt-auto pt-4 border-t border-[var(--border)] flex items-center justify-between">
+                                <span class="text-xs text-[var(--page-text-muted)]"><i class="fas fa-drumstick-bite text-[var(--primary)] mr-1"></i> Free-Range Chicken</span>
+                                <span class="text-xs text-[var(--primary)] font-semibold">Partner since 2018</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="assets/Southern Pastures.jpg" alt="Southern Pastures Ranch" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-xl mb-2">
+                                    <i class="fas fa-mountain"></i>
+                                </div>
+                                <h3 class="text-lg font-bold">Southern Pastures</h3>
+                                <p class="text-xs text-white/80">South Island, New Zealand</p>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <p class="text-sm text-[var(--page-text-muted)] italic leading-relaxed">"Our lambs graze on over 5,000 acres of pristine pasture, with fresh mountain air and crystal-clear water."</p>
+                            <div class="mt-auto pt-4 border-t border-[var(--border)] flex items-center justify-between">
+                                <span class="text-xs text-[var(--page-text-muted)]"><i class="fas fa-horse text-[var(--primary)] mr-1"></i> Grass-Fed Lamb</span>
+                                <span class="text-xs text-[var(--primary)] font-semibold">Partner since 2019</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="assets/Nordic Fjord Fisheries.jpg" alt="Nordic Fjord Fisheries" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-xl mb-2">
+                                    <i class="fas fa-water"></i>
+                                </div>
+                                <h3 class="text-lg font-bold">Nordic Fjord Fisheries</h3>
+                                <p class="text-xs text-white/80">Nordland, Norway</p>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <p class="text-sm text-[var(--page-text-muted)] italic leading-relaxed">"The cold, clean waters of the Norwegian fjords produce the richest, most sustainable salmon in the world."</p>
+                            <div class="mt-auto pt-4 border-t border-[var(--border)] flex items-center justify-between">
+                                <span class="text-xs text-[var(--page-text-muted)]"><i class="fas fa-fish text-[var(--primary)] mr-1"></i> Wild-Caught Salmon</span>
+                                <span class="text-xs text-[var(--primary)] font-semibold">Partner since 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <section class="py-20 bg-[var(--page-bg)] border-t border-[var(--card-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="bg-gradient-to-r from-[var(--primary)] to-[var(--primary-hover)] rounded-3xl p-12 md:p-16 relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-10">
+                        <div class="absolute -top-20 -right-20 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+                        <div class="absolute -bottom-20 -left-20 w-60 h-60 bg-white rounded-full blur-3xl"></div>
+                    </div>
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <span class="text-white/70 text-sm uppercase tracking-[0.2em] font-bold"><i class="fas fa-paw mr-2"></i> Stay Connected</span>
+                            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-tight mt-3 mb-4">
+                                Get 15% Off<br>Your First Order
+                            </h2>
+                            <p class="text-white/80 text-lg max-w-lg">Subscribe for sourcing updates, new ingredient stories, and exclusive deals straight to your inbox.</p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 lg:justify-end w-full">
+                            <input type="email" placeholder="Enter your email" class="px-6 py-4 rounded-xl text-base outline-none w-full bg-white/15 backdrop-blur-sm border border-white/30 text-white placeholder-white/50 focus:bg-white/25 focus:border-white/50 transition-all">
+                            <button class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 whitespace-nowrap cursor-pointer border-none">
+                                <i class="fas fa-paper-plane mr-2"></i> Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+      (function () {
+        var html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark') {
+          html.classList.add('dark');
+        }
+        if (localStorage.getItem('dir') === 'rtl') {
+          html.dir = 'rtl';
+        }
+
+        var themeBarBtn = document.querySelector('#theme-bar [data-toggle="theme"]');
+        var dirBarBtn = document.querySelector('#theme-bar [data-toggle="dir"]');
+
+        if (themeBarBtn) {
+          themeBarBtn.onclick = function () {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+          };
+        }
+        if (dirBarBtn) {
+          dirBarBtn.onclick = function () {
+            var cur = html.dir || 'ltr';
+            html.dir = cur === 'rtl' ? 'ltr' : 'rtl';
+            localStorage.setItem('dir', html.dir);
+          };
+        }
+      })();
+    </script>
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

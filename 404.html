@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Paw Pantry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class' }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #355E3B;
+            --primary-hover: #2a4a2f;
+            --accent: #F28C28;
+            --accent-hover: #d9771a;
+            --surface: #ffffff;
+            --surface-hover: #f3f4f6;
+            --surface-active: #e5e7eb;
+            --surface-muted: #f9fafb;
+            --text: #374151;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --border-muted: #f3f4f6;
+            --footer-bg: #ffffff;
+            --footer-text: #374151;
+            --footer-text-muted: #6b7280;
+            --page-bg: #f9fafb;
+            --page-text: #2D2A26;
+            --page-text-muted: #5C5852;
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+            --section-alt-bg: #F8F5EE;
+        }
+        .dark {
+            --primary: #4ade80;
+            --primary-hover: #22c55e;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --surface: #111111;
+            --surface-hover: #222222;
+            --surface-active: #2a2a2a;
+            --surface-muted: #000000;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border: #2a2a2a;
+            --border-muted: #1a1a1a;
+            --footer-bg: #000000;
+            --footer-text: #e5e7eb;
+            --footer-text-muted: #6b7280;
+            --page-bg: #000000;
+            --page-text: #e5e7eb;
+            --page-text-muted: #9ca3af;
+            --card-bg: #111111;
+            --card-border: #222222;
+            --section-alt-bg: #000000;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--page-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes wag {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-wag { animation: wag 0.6s ease-in-out infinite; transform-origin: bottom center; }
+    </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center px-6 py-12 text-center">
+
+    <div class="relative mb-6">
+        <div class="text-[120px] md:text-[160px] font-black text-[var(--primary)] leading-none select-none opacity-20">404</div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <i class="fas fa-paw text-[var(--accent)] text-7xl md:text-8xl animate-float"></i>
+        </div>
+    </div>
+
+    <h1 class="text-3xl md:text-5xl font-medium text-[var(--page-text)] mt-2">Oops! Page Not Found</h1>
+    <p class="text-[var(--page-text-muted)] text-base md:text-lg mt-3 max-w-md mx-auto">Looks like this page wandered off the trail. Let's get you back to the pack!</p>
+
+    <div class="flex flex-col sm:flex-row items-center gap-4 mt-8">
+        <a href="index.html" class="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+        <a href="shop.html" class="inline-flex items-center gap-2 border-2 border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white font-bold px-8 py-3.5 rounded-xl transition-all duration-300">
+            <i class="fas fa-bone"></i> Browse Treats
+        </a>
+    </div>
+
+    <div class="mt-12 text-[var(--page-text-muted)] text-sm">
+        <i class="fas fa-dog animate-wag inline-block text-[var(--accent)] text-xl mr-2"></i>
+        Every good dog deserves a treat &mdash; let's find yours.
+    </div>
+
+    <script>
+      (function () {
+        var html = document.documentElement;
+        if (localStorage.getItem('theme') === 'dark') {
+          html.classList.add('dark');
+        }
+        if (localStorage.getItem('dir') === 'rtl') {
+          html.dir = 'rtl';
+        }
+      })();
+    </script>
+</body>
+</html>
