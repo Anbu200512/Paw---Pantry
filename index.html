@@ -123,7 +123,7 @@
                     <div class="relative bg-white/10 backdrop-blur-md rounded-3xl p-4 border border-white/20 shadow-2xl">
                         <img src="assets/groupdogs.jpg" alt="Happy Dogs" class="w-full h-80 object-cover rounded-2xl">
                         <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl">
-                            <p class="text-[var(--primary)] font-bold text-lg"><i class="fas fa-check-circle text-green-500 mr-1"></i> Vet Approved</p>
+                            <p class="text-[var(--primary)] font-bold text-lg"><i class="fas fa-check-circle text-[var(--primary)] mr-1"></i> Vet Approved</p>
                         </div>
                         <div class="absolute -top-4 -right-4 bg-[var(--accent)] rounded-full w-16 h-16 flex items-center justify-center shadow-xl">
                             <i class="fas fa-paw text-white text-2xl"></i>
@@ -132,64 +132,81 @@
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-white/60 text-2xl"></i>
-        </div>
     </section>
 
-    <section class="py-24 bg-[var(--card-bg)]">
-        <div class="max-w-7xl mx-auto px-6">
+    <section class="py-24 bg-[var(--card-bg)] relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--primary)]"></div>
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-[var(--primary)]/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-[var(--accent)]/5 rounded-full blur-3xl"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em]"><i class="fas fa-leaf mr-2"></i>Why Choose Us</span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-4 tracking-tight">
-                    Crafted With Love,<br>Rooted In Nature
+                <span class="inline-flex items-center gap-2 text-[var(--accent)] font-bold text-sm uppercase tracking-[0.2em] bg-[var(--accent)]/10 px-5 py-2 rounded-full"><i class="fas fa-leaf mr-1"></i>Why Choose Us</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--page-text)] mt-6 tracking-tight">
+                    Crafted With Love,<br><span class="text-[var(--primary)]">Rooted In Nature</span>
                 </h2>
-                <div class="w-20 h-1 bg-[var(--accent)] mx-auto mt-6 rounded-full"></div>
+                <p class="text-[var(--page-text-muted)] text-base mt-4 max-w-xl mx-auto">Every treat we make starts with a simple belief — your best friend deserves the very best nature has to offer.</p>
+                <div class="w-20 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] mx-auto mt-6 rounded-full"></div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
-                    <div class="p-8 text-center flex flex-col items-center">
-                        <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center text-[var(--primary)] text-3xl mb-5 group-hover:scale-110 transition-transform">
+                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col relative">
+                    <div class="absolute inset-0 bg-gradient-to-b from-[var(--primary)]/0 via-[var(--primary)]/0 to-[var(--primary)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    <div class="relative p-8 text-center flex flex-col items-center flex-1">
+                        <div class="w-16 h-16 bg-gradient-to-br from-[var(--primary)]/10 to-[var(--primary)]/5 rounded-2xl flex items-center justify-center text-[var(--primary)] text-3xl mb-5 group-hover:scale-110 group-hover:from-[var(--primary)] group-hover:to-[var(--primary-hover)] group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg">
                             <i class="fas fa-seedling"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-[var(--page-text)] mb-3">100% Organic</h3>
+                        <h3 class="text-xl font-bold text-[var(--page-text)] mb-3 group-hover:text-[var(--primary)] transition-colors">100% Organic</h3>
                         <p class="text-sm text-[var(--page-text-muted)] leading-relaxed mb-4">All ingredients are certified organic, sourced from trusted farms that practice sustainable agriculture.</p>
-                        <a href="#" class="text-xs font-bold text-[var(--accent)] tracking-wider uppercase hover:underline mt-auto">Explore <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--accent)] tracking-wider uppercase hover:gap-3 transition-all mt-auto group/link">Explore <i class="fas fa-arrow-right text-xs group-hover/link:translate-x-1 transition-transform"></i></a>
                     </div>
-                    <img src="assets/photo-1540420773420-3366772f4999.jpg" alt="Organic ingredients" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/photo-1540420773420-3366772f4999.jpg" alt="Organic ingredients" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[var(--primary)]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
                 </div>
-                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
-                    <div class="p-8 text-center flex flex-col items-center">
-                        <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center text-[var(--primary)] text-3xl mb-5 group-hover:scale-110 transition-transform">
+                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col relative">
+                    <div class="absolute inset-0 bg-gradient-to-b from-[var(--primary)]/0 via-[var(--primary)]/0 to-[var(--primary)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    <div class="relative p-8 text-center flex flex-col items-center flex-1">
+                        <div class="w-16 h-16 bg-gradient-to-br from-[var(--primary)]/10 to-[var(--primary)]/5 rounded-2xl flex items-center justify-center text-[var(--primary)] text-3xl mb-5 group-hover:scale-110 group-hover:from-[var(--primary)] group-hover:to-[var(--primary-hover)] group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg">
                             <i class="fas fa-wheat-awn"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-[var(--page-text)] mb-3">Grain-Free</h3>
+                        <h3 class="text-xl font-bold text-[var(--page-text)] mb-3 group-hover:text-[var(--primary)] transition-colors">Grain-Free</h3>
                         <p class="text-sm text-[var(--page-text-muted)] leading-relaxed mb-4">Perfect for pups with sensitive stomachs. Our grain-free recipes use wholesome alternatives like sweet potato.</p>
-                        <a href="#" class="text-xs font-bold text-[var(--accent)] tracking-wider uppercase hover:underline mt-auto">Explore <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--accent)] tracking-wider uppercase hover:gap-3 transition-all mt-auto group/link">Explore <i class="fas fa-arrow-right text-xs group-hover/link:translate-x-1 transition-transform"></i></a>
                     </div>
-                    <img src="assets/photo-1557844352-761f2565b576.jpg" alt="Grain free treats" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/Grain-Free.jpg" alt="Grain free treats" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[var(--primary)]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
                 </div>
-                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
-                    <div class="p-8 text-center flex flex-col items-center">
-                        <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center text-[var(--primary)] text-3xl mb-5 group-hover:scale-110 transition-transform">
+                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col relative">
+                    <div class="absolute inset-0 bg-gradient-to-b from-[var(--primary)]/0 via-[var(--primary)]/0 to-[var(--primary)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    <div class="relative p-8 text-center flex flex-col items-center flex-1">
+                        <div class="w-16 h-16 bg-gradient-to-br from-[var(--primary)]/10 to-[var(--primary)]/5 rounded-2xl flex items-center justify-center text-[var(--primary)] text-3xl mb-5 group-hover:scale-110 group-hover:from-[var(--primary)] group-hover:to-[var(--primary-hover)] group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg">
                             <i class="fas fa-stethoscope"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-[var(--page-text)] mb-3">Vet Approved</h3>
+                        <h3 class="text-xl font-bold text-[var(--page-text)] mb-3 group-hover:text-[var(--primary)] transition-colors">Vet Approved</h3>
                         <p class="text-sm text-[var(--page-text-muted)] leading-relaxed mb-4">Formulated with veterinary nutritionists to ensure every treat supports your dog's overall health and wellness.</p>
-                        <a href="#" class="text-xs font-bold text-[var(--accent)] tracking-wider uppercase hover:underline mt-auto">Explore <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--accent)] tracking-wider uppercase hover:gap-3 transition-all mt-auto group/link">Explore <i class="fas fa-arrow-right text-xs group-hover/link:translate-x-1 transition-transform"></i></a>
                     </div>
-                    <img src="assets/photo-1588776814546-1ffcf47267a5.jpg" alt="Vet approved" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/pexels-vet-checkup.jpg" alt="Vet approved" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[var(--primary)]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
                 </div>
-                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
-                    <div class="p-8 text-center flex flex-col items-center">
-                        <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center text-[var(--primary)] text-3xl mb-5 group-hover:scale-110 transition-transform">
+                <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col relative">
+                    <div class="absolute inset-0 bg-gradient-to-b from-[var(--primary)]/0 via-[var(--primary)]/0 to-[var(--primary)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    <div class="relative p-8 text-center flex flex-col items-center flex-1">
+                        <div class="w-16 h-16 bg-gradient-to-br from-[var(--primary)]/10 to-[var(--primary)]/5 rounded-2xl flex items-center justify-center text-[var(--primary)] text-3xl mb-5 group-hover:scale-110 group-hover:from-[var(--primary)] group-hover:to-[var(--primary-hover)] group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg">
                             <i class="fas fa-recycle"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-[var(--page-text)] mb-3">Eco-Friendly</h3>
+                        <h3 class="text-xl font-bold text-[var(--page-text)] mb-3 group-hover:text-[var(--primary)] transition-colors">Eco-Friendly</h3>
                         <p class="text-sm text-[var(--page-text-muted)] leading-relaxed mb-4">100% compostable packaging and carbon-neutral delivery. Good for your pup and good for the planet.</p>
-                        <a href="#" class="text-xs font-bold text-[var(--accent)] tracking-wider uppercase hover:underline mt-auto">Explore <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--accent)] tracking-wider uppercase hover:gap-3 transition-all mt-auto group/link">Explore <i class="fas fa-arrow-right text-xs group-hover/link:translate-x-1 transition-transform"></i></a>
                     </div>
-                    <img src="assets/photo-1441974231531-c6227db76b6e.jpg" alt="Eco friendly" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/eco.jpg" alt="Eco friendly" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[var(--primary)]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -206,7 +223,7 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="relative group overflow-hidden rounded-3xl min-h-[420px] shadow-lg hover:shadow-2xl transition-all duration-500">
-                    <img src="assets/photo-1500382017468-9049fed747ef.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/Sourced From Farms.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                     <div class="absolute top-6 left-6 w-14 h-14 bg-[var(--accent)] rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
                         <i class="fas fa-seedling"></i>
@@ -218,7 +235,7 @@
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-3xl min-h-[420px] shadow-lg hover:shadow-2xl transition-all duration-500 md:translate-y-8">
-                    <img src="assets/photo-1590947132387-155cc02f3212.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/Small Batch Crafted.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                     <div class="absolute top-6 left-6 w-14 h-14 bg-[var(--primary)] rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
                         <i class="fas fa-kitchen-set"></i>
@@ -282,7 +299,7 @@
                 <div class="relative w-full max-w-sm lg:max-w-lg">
                     <div class="absolute inset-0 bg-[var(--accent)]/20 rounded-[2rem] transform rotate-3 -z-10"></div>
                     <div class="absolute -top-6 -right-6 w-24 h-24 bg-[var(--primary)]/10 rounded-full blur-xl -z-10"></div>
-                    <img src="assets/photo-1556909114-f6e7ad7d3136.jpg" 
+                    <img src="assets/From Our KitchenToTheir Bowl.jpg" 
                          alt="Baking treats in our kitchen" 
                          class="w-full h-auto max-h-64 lg:max-h-none object-cover rounded-[2rem] shadow-2xl border-4 border-white transform hover:-rotate-1 transition-transform duration-500" />
                     <div class="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-xl flex items-center gap-3">
@@ -389,7 +406,7 @@
                 <div class="group bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col">
                     <div class="relative overflow-hidden h-48 sm:h-56 lg:h-64">
                         <img src="assets/Sweet Potato Chews.jpg" alt="Sweet Potato Chews" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</div>
+                        <div class="absolute top-4 left-4 bg-[var(--primary)] text-white text-xs font-bold px-3 py-1 rounded-full">New</div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div class="p-5 sm:p-6 flex flex-col flex-1">
@@ -468,7 +485,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
                 </div>
                 <div class="group relative overflow-hidden rounded-2xl break-inside-avoid cursor-pointer">
-                    <img src="assets/photo-1601758228041-f3b2795255f1.jpg" alt="Dog outdoors playing" class="w-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-2xl">
+                    <img src="assets/doghero.jpg" alt="Dog outdoors playing" class="w-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-2xl">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
                 </div>
                 <div class="group relative overflow-hidden rounded-2xl break-inside-avoid cursor-pointer">
@@ -611,7 +628,7 @@
                             </div>
                         </div>
                         <div class="flex items-center gap-3 bg-[var(--section-alt-bg)] p-3 sm:p-4 rounded-xl border border-[var(--card-border)]">
-                            <img src="assets/Sweet Potato Chews.jpg" alt="" class="w-10 sm:w-12 h-10 sm:h-12 rounded-lg object-cover shrink-0">
+                            <img src="assets/Sweetp.jpg" alt="" class="w-10 sm:w-12 h-10 sm:h-12 rounded-lg object-cover shrink-0">
                             <div>
                                 <h4 class="text-xs sm:text-sm font-bold text-[var(--page-text)]">Sweet Potato</h4>
                                 <p class="text-[11px] sm:text-xs text-[var(--page-text-muted)]">Vitamin-rich</p>
